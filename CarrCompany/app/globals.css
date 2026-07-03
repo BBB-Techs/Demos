@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  /* Semantic tokens resolve to mode-aware vars defined below. */
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-line: var(--line);
+
+  --font-display: var(--font-display), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+/* Dark (default) — cinematic. ink = background, paper = foreground text. */
+:root {
+  color-scheme: dark;
+  --ink: #07070a;
+  --ink-soft: #0d0d12;
+  --paper: #f4f3ef;
+  --muted: #8a8a96;
+  --accent: #e9a23b;
+  --accent-soft: #f3c172;
+  --line: #1d1d24;
+}
+
+/* Light — corporate. Carr navy (#163660) on white, with a readable gold accent. */
+html.light {
+  color-scheme: light;
+  --ink: #ffffff;
+  --ink-soft: #f1f6fc;
+  --paper: #163660;
+  --muted: #52627a;
+  --accent: #9a6b12;
+  --accent-soft: #7d560c;
+  --line: #dce4ee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Big condensed display type, tight + uppercase for the cinematic look */
+.display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+}
+
+/* Spec-sheet utility label — the technical vernacular of the building trade */
+.spec {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+}
+
+/* Show an element only in one theme (used by the theme-aware hero background). */
+html.light .only-dark { display: none; }
+html:not(.light) .only-light { display: none; }
+
+/* Marquee keyword strip */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
