@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";
-const basePath = isGithubPages ? "/Demos/WHB/demo" : "";
+const basePath = isGithubPages ? "/Demos/WHB/preview" : "";
 
 const nextConfig: NextConfig = {
   ...(isGithubPages ? { output: "export" } : {}),

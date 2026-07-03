@@ -4,7 +4,7 @@ A from-scratch rebuild of [whbsales.com](https://www.whbsales.com/), a manufactu
 representative firm for plumbing, HVAC, and building-supply brands across seven
 Southeastern states.
 
-**Live demo:** https://bbb-techs.github.io/Demos/WHB/demo/
+**Live preview:** https://bbb-techs.github.io/Demos/WHB/preview/
 
 ## Stack
 
@@ -35,13 +35,13 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Building for GitHub Pages
 
-This repo's `/demo` folder is a static export of this project, built with:
+This repo's `/preview` folder is a static export of this project, built with:
 
 ```bash
 GITHUB_PAGES=true npm run build
 ```
 
-This sets `output: "export"` and a `/Demos/WHB/demo` base path (see
+This sets `output: "export"` and a `/Demos/WHB/preview` base path (see
 `next.config.ts` and `src/lib/basePath.ts`). A plain `npm run build` (no
 `GITHUB_PAGES` env var) builds normally with no base path, for deploying
 anywhere else.
