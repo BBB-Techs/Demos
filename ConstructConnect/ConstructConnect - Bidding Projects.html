@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE Bidding Projects</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f6fa;
+  --white: #ffffff;
+  --navy: #0f2342;
+  --navy2: #1a3560;
+  --gold: #c8922a;
+  --gold-lt: #fdf3e3;
+  --red: #c0392b;
+  --red-lt: #fdf0ef;
+  --green: #1e7e4a;
+  --green-lt: #edf7f1;
+  --blue: #1a6fba;
+  --blue-lt: #eaf2fb;
+  --gray: #6b7280;
+  --gray-lt: #f3f4f6;
+  --border: #e2e6ec;
+  --text: #1a202c;
+  --muted: #6b7280;
+}
+* { box-sizing: border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:'IBM Plex Sans',sans-serif; font-size:13px; }
+
+/* NAV */
+.topbar {
+  background:var(--navy); color:#fff;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 28px; height:52px;
+}
+.brand { display:flex; align-items:center; gap:10px; }
+.brand-badge {
+  background:var(--gold); color:#fff; font-weight:700; font-size:11px;
+  padding:4px 10px; border-radius:4px; letter-spacing:.05em;
+}
+.brand-name { font-size:15px; font-weight:700; letter-spacing:.02em; }
+.brand-sub { font-size:11px; color:rgba(255,255,255,.55); font-family:'IBM Plex Mono',monospace; margin-top:1px; }
+.nav-tabs { display:flex; gap:2px; }
+.nav-tab {
+  padding:6px 18px; border-radius:4px; font-size:12px; font-weight:600;
+  cursor:pointer; color:rgba(255,255,255,.6); transition:.2s;
+}
+.nav-tab.active { background:rgba(255,255,255,.15); color:#fff; }
+.nav-tab:hover:not(.active) { color:#fff; background:rgba(255,255,255,.08); }
+.nav-right { font-family:'IBM Plex Mono',monospace; font-size:11px; color:rgba(255,255,255,.5); display:flex; align-items:center; gap:16px; }
+.dot-green { width:7px; height:7px; border-radius:50%; background:#3fb950; display:inline-block; margin-right:5px; }
+
+/* SUBBAR */
+.subbar {
+  background:var(--white); border-bottom:1px solid var(--border);
+  padding:10px 28px; display:flex; align-items:center; justify-content:space-between;
+}
+.page-title { font-size:18px; font-weight:700; color:var(--navy); }
+.page-title span { color:var(--gold); }
+.page-desc { font-size:12px; color:var(--muted); font-family:'IBM Plex Mono',monospace; margin-top:2px; }
+.filter-row { display:flex; gap:6px; align-items:center; }
+.chip {
+  padding:5px 12px; border-radius:20px; font-size:11px; font-weight:600;
+  border:1px solid var(--border); cursor:pointer; color:var(--muted); font-family:'IBM Plex Mono',monospace;
+  transition:.15s;
+}
+.chip.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+.chip.gold { background:var(--gold); color:#fff; border-color:var(--gold); }
+.chip:hover:not(.on):not(.gold) { border-color:var(--navy); color:var(--navy); }
+
+/* MAIN */
+.main { padding:22px 28px; }
+
+/* KPI ROW */
+.kpi-row { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:22px; }
+.kpi {
+  background:var(--white); border:1px solid var(--border); border-radius:8px;
+  padding:16px 18px; position:relative; overflow:hidden;
+}
+.kpi::after {
+  content:''; position:absolute; top:0; left:0; width:4px; height:100%;
+  background:var(--kpi-color, var(--navy));
+}
+.kpi-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); font-family:'IBM Plex Mono',monospace; }
+.kpi-val { font-size:28px; font-weight:700; margin-top:6px; color:var(--navy); line-height:1; }
+.kpi-sub { font-size:11px; color:var(--muted); margin-top:5px; font-family:'IBM Plex Mono',monospace; }
+.kpi-sub .hi { color:var(--kpi-color, var(--navy)); font-weight:600; }
+
+/* GRID */
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+.grid-3 { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:16px; margin-bottom:16px; }
+
+/* CARDS */
+.card { background:var(--white); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+.card-head {
+  padding:12px 16px; border-bottom:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between;
+  background:var(--gray-lt);
+}
+.card-head h3 { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--navy); font-family:'IBM Plex Mono',monospace; }
+.card-body { padding:16px; }
+
+/* BAR CHART */
+.bar-list { display:flex; flex-direction:column; gap:9px; }
+.bar-item { display:flex; align-items:center; gap:8px; }
+.bl-label { font-size:11px; color:var(--text); width:200px; flex-shrink:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-family:'IBM Plex Mono',monospace; }
+.bl-track { flex:1; height:7px; background:var(--bg); border-radius:3px; overflow:hidden; border:1px solid var(--border); }
+.bl-fill { height:100%; border-radius:3px; }
+.bl-n { font-size:11px; color:var(--muted); width:20px; text-align:right; font-family:'IBM Plex Mono',monospace; }
+.bl-v { font-size:11px; color:var(--navy); font-weight:600; width:54px; text-align:right; font-family:'IBM Plex Mono',monospace; }
+
+/* PIE LEGEND */
+.pie-wrap { display:flex; gap:20px; align-items:center; }
+.legend { display:flex; flex-direction:column; gap:10px; flex:1; }
+.leg-item { display:flex; align-items:center; gap:8px; }
+.leg-dot { width:10px; height:10px; border-radius:2px; flex-shrink:0; }
+.leg-lab { font-size:11px; color:var(--muted); font-family:'IBM Plex Mono',monospace; flex:1; }
+.leg-n { font-size:12px; font-weight:700; color:var(--navy); }
+.leg-pct { font-size:10px; color:var(--muted); font-family:'IBM Plex Mono',monospace; margin-left:4px; }
+
+/* TIMELINE */
+.timeline { display:flex; flex-direction:column; gap:0; }
+.tl-item { display:flex; align-items:stretch; gap:0; }
+.tl-date { width:80px; flex-shrink:0; padding:10px 8px 10px 0; text-align:right; }
+.tl-date .d { font-size:11px; font-weight:700; font-family:'IBM Plex Mono',monospace; color:var(--navy); }
+.tl-date .m { font-size:10px; color:var(--muted); font-family:'IBM Plex Mono',monospace; }
+.tl-line { width:30px; flex-shrink:0; display:flex; flex-direction:column; align-items:center; }
+.tl-dot { width:10px; height:10px; border-radius:50%; background:var(--navy); flex-shrink:0; margin-top:13px; border:2px solid var(--white); box-shadow:0 0 0 2px var(--navy); }
+.tl-dot.urgent { background:var(--red); box-shadow:0 0 0 2px var(--red); }
+.tl-dot.ok { background:var(--green); box-shadow:0 0 0 2px var(--green); }
+.tl-vert { flex:1; width:2px; background:var(--border); margin:0 auto; }
+.tl-body { flex:1; padding:6px 0 6px 4px; }
+.tl-name { font-size:12px; font-weight:600; color:var(--navy); line-height:1.3; }
+.tl-meta { font-size:11px; color:var(--muted); font-family:'IBM Plex Mono',monospace; margin-top:2px; }
+
+
+
+/* TABLE */
+.proj-table { width:100%; border-collapse:collapse; font-size:12px; }
+.proj-table thead tr { background:var(--gray-lt); }
+.proj-table th { padding:9px 12px; text-align:left; font-size:10px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); border-bottom:2px solid var(--border); font-family:'IBM Plex Mono',monospace; white-space:nowrap; }
+.proj-table td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+.proj-table tbody tr:last-child td { border-bottom:none; }
+.proj-table tbody tr:hover td { background:#fafbff; }
+.t-title { font-weight:600; color:var(--navy); max-width:220px; }
+.t-title small { display:block; font-weight:400; color:var(--muted); font-family:'IBM Plex Mono',monospace; font-size:10px; margin-top:2px; }
+.t-sub { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--muted); max-width:160px; line-height:1.4; }
+.t-val { font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--navy); white-space:nowrap; }
+.t-date { font-family:'IBM Plex Mono',monospace; font-size:11px; white-space:nowrap; }
+.urgent { color:var(--red); font-weight:700; }
+.soon { color:var(--gold); font-weight:600; }
+.ok { color:var(--green); }
+.badge { display:inline-block; padding:2px 7px; border-radius:3px; font-size:10px; font-weight:600; font-family:'IBM Plex Mono',monospace; white-space:nowrap; }
+.badge-city { background:#e0e7ff; color:#3730a3; }
+.badge-county { background:#fef3c7; color:#92400e; }
+.badge-private { background:#f0fdf4; color:#166534; }
+.badge-federal { background:#fdf4ff; color:#6b21a8; }
+.badge-state { background:#ecfeff; color:#164e63; }
+.specs-yes { color:var(--green); font-weight:600; font-family:'IBM Plex Mono',monospace; font-size:11px; }
+.specs-no { color:var(--red); font-family:'IBM Plex Mono',monospace; font-size:11px; }
+.action-btn { 
+  display:inline-block; padding:3px 8px; background:var(--blue-lt); color:var(--blue); 
+  border-radius:3px; font-size:10px; font-weight:600; cursor:pointer; white-space:nowrap;
+  font-family:'IBM Plex Mono',monospace; border:1px solid #bfdbfe;
+}
+
+/* FOOTER */
+.footer { padding:14px 28px; border-top:1px solid var(--border); background:var(--white); color:var(--muted); font-size:11px; display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<div class="topbar">
+  <div class="brand">
+    <div class="brand-badge">BBB</div>
+    <div>
+      <div class="brand-name">Project Tracker</div>
+      <div class="brand-sub">Powered by ConstructConnect · SE Region</div>
+    </div>
+  </div>
+  <div class="nav-tabs">
+    <div class="nav-tab active">🗓 Bidding in 30 Days</div>
+    <div class="nav-tab">📐 Design Projects</div>
+    <div class="nav-tab">📁 Archive</div>
+  </div>
+  <div class="nav-right">
+    <span><span class="dot-green"></span>Live · Updated Feb 10, 2026</span>
+    <span>SE Region</span>
+  </div>
+</div>
+
+<!-- SUB BAR -->
+<div class="subbar">
+  <div>
+    <div class="page-title">SE Bidding Projects <span>· Next 30 Days</span></div>
+    <div class="page-desc">Feb 10 – Mar 12, 2026 &nbsp;·&nbsp; 16 projects &nbsp;·&nbsp; $209.0M total value &nbsp;·&nbsp; Refreshed weekly from ConstructConnect export</div>
+  </div>
+  <div class="filter-row">
+    <div class="chip on">All Categories</div>
+    <div class="chip">Civil</div>
+    <div class="chip">Educational</div>
+    <div class="chip">Medical</div>
+    <div class="chip gold">⬇ Export</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- KPIs -->
+  <div class="kpi-row">
+    <div class="kpi" style="--kpi-color:var(--navy)">
+      <div class="kpi-label">Total Projects</div>
+      <div class="kpi-val">16</div>
+      <div class="kpi-sub">SE Region this cycle</div>
+    </div>
+    <div class="kpi" style="--kpi-color:var(--blue)">
+      <div class="kpi-label">Total Value</div>
+      <div class="kpi-val" style="font-size:22px">$209M</div>
+      <div class="kpi-sub">Combined project value</div>
+    </div>
+    <div class="kpi" style="--kpi-color:var(--red)">
+      <div class="kpi-label">Bid This Week</div>
+      <div class="kpi-val" style="color:var(--red)">7</div>
+      <div class="kpi-sub"><span class="hi">Feb 10–13</span> — urgent</div>
+    </div>
+    <div class="kpi" style="--kpi-color:var(--green)">
+      <div class="kpi-label">Specs Available</div>
+      <div class="kpi-val" style="color:var(--green)">15</div>
+      <div class="kpi-sub">of 16 &nbsp;<span class="hi">94%</span> coverage</div>
+    </div>
+    <div class="kpi" style="--kpi-color:var(--gold)">
+      <div class="kpi-label">Avg. Project Value</div>
+      <div class="kpi-val" style="font-size:22px">$13.1M</div>
+      <div class="kpi-sub">Largest: <span class="hi">$43M</span></div>
+    </div>
+  </div>
+
+  <!-- ROW 2: bar + timeline + donut -->
+  <div class="grid-3">
+
+    <!-- SUBCATEGORY BAR -->
+    <div class="card">
+      <div class="card-head">
+        <h3>Projects by Subcategory</h3>
+        <span style="font-size:10px;color:var(--muted);font-family:'IBM Plex Mono',monospace">count · value</span>
+      </div>
+      <div class="card-body">
+        <div class="bar-list">
+          <div class="bar-item">
+            <div class="bl-label">High Schools</div>
+            <div class="bl-track"><div class="bl-fill" style="width:100%;background:#1a3560"></div></div>
+            <div class="bl-n">3</div>
+            <div class="bl-v">$60M</div>
+          </div>
+          <div class="bar-item">
+            <div class="bl-label">Water Treatment Plants</div>
+            <div class="bl-track"><div class="bl-fill" style="width:92%;background:#1a6fba"></div></div>
+            <div class="bl-n">3</div>
+            <div class="bl-v">$39.8M</div>
+          </div>
+          <div class="bar-item">
+            <div class="bl-label">Sewers / Water Mains</div>
+            <div class="bl-track"><div class="bl-fill" style="width:70%;background:#1a6fba"></div></div>
+            <div class="bl-n">2</div>
+            <div class="bl-v">$25.4M</div>
+          </div>
+          <div class="bar-item">
+            <div class="bl-label">Apartments / Community</div>
+            <div class="bl-track"><div class="bl-fill" style="width:66%;background:#c8922a"></div></div>
+            <div class="bl-n">1</div>
+            <div class="bl-v">$43M</div>
+          </div>
+          <div class="bar-item">
+            <div class="bl-label">Post Offices</div>
+            <div class="bl-track"><div class="bl-fill" style="width:30%;background:#6b7280"></div></div>
+            <div class="bl-n">1</div>
+            <div class="bl-v">$6.8M</div>
+          </div>
+          <div class="bar-item">
+            <div class="bl-label">Hospitals / Clinics</div>
+            <div class="bl-track"><div class="bl-fill" style="width:28%;background:#c0392b"></div></div>
+            <div class="bl-n">1</div>
+            <div class="bl-v">$5M</div>
+          </div>
+          <div class="bar-item">
+            <div class="bl-label">College / University</div>
+            <div class="bl-track"><div class="bl-fill" style="width:26%;background:#7c3aed"></div></div>
+            <div class="bl-n">1</div>
+            <div class="bl-v">$9M</div>
+          </div>
+          <div class="bar-item">
+            <div class="bl-label">Shopping Centers</div>
+            <div class="bl-track"><div class="bl-fill" style="width:24%;background:#0891b2"></div></div>
+            <div class="bl-n">1</div>
+            <div class="bl-v">$10M</div>
+          </div>
+          <div class="bar-item">
+            <div class="bl-label">Manufacturing</div>
+            <div class="bl-track"><div class="bl-fill" style="width:24%;background:#0891b2"></div></div>
+            <div class="bl-n">1</div>
+            <div class="bl-v">$10M</div>
+          </div>
+          <div class="bar-item">
+            <div class="bl-label">Airport / Warehouses / Other</div>
+            <div class="bl-track"><div class="bl-fill" style="width:20%;background:#9ca3af"></div></div>
+            <div class="bl-n">2</div>
+            <div class="bl-v">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BID DATE TIMELINE -->
+    <div class="card">
+      <div class="card-head"><h3>Bid Date Timeline</h3><span style="font-size:10px;color:var(--red);font-family:'IBM Plex Mono',monospace">⚠ Red = this week</span></div>
+      <div class="card-body" style="padding:10px 16px;">
+        <div class="timeline">
+
+          <div class="tl-item">
+            <div class="tl-date"><div class="d">Feb 3</div><div class="m">Tue</div></div>
+            <div class="tl-line"><div class="tl-dot ok"></div><div class="tl-vert"></div></div>
+            <div class="tl-body">
+              <div class="tl-name">Harris Elementary Renovations</div>
+              <div class="tl-meta">Saint Charles, MO · $8M</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date"><div class="d">Feb 5</div><div class="m">Thu</div></div>
+            <div class="tl-line"><div class="tl-dot ok"></div><div class="tl-vert"></div></div>
+            <div class="tl-body">
+              <div class="tl-name">Robinson Palestine WTP + Farmington Crossings</div>
+              <div class="tl-meta">Robinson, IL · $15M &amp; Farmington, MO · $10M</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date"><div class="d" style="color:var(--red)">Feb 10</div><div class="m" style="color:var(--red)">Tue</div></div>
+            <div class="tl-line"><div class="tl-dot urgent"></div><div class="tl-vert"></div></div>
+            <div class="tl-body">
+              <div class="tl-name" style="color:var(--red)">Perry County SD CM At-Risk + Phase 5B Water + Bioplex</div>
+              <div class="tl-meta">Perryville $25M · Morley $10.4M · Rolla $9M</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date"><div class="d" style="color:var(--red)">Feb 12</div><div class="m" style="color:var(--red)">Thu</div></div>
+            <div class="tl-line"><div class="tl-dot urgent"></div><div class="tl-vert"></div></div>
+            <div class="tl-body">
+              <div class="tl-name" style="color:var(--red)">Capital Flooring Replacement</div>
+              <div class="tl-meta">Chesterfield, MO · $5M · High Schools</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date"><div class="d" style="color:var(--red)">Feb 13</div><div class="m" style="color:var(--red)">Fri</div></div>
+            <div class="tl-line"><div class="tl-dot urgent"></div><div class="tl-vert"></div></div>
+            <div class="tl-body">
+              <div class="tl-name" style="color:var(--red)">Altair on Main — $43M</div>
+              <div class="tl-meta">Imperial, MO · Apartments / Community</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date"><div class="d" style="color:var(--gold)">Feb 17</div><div class="m">Tue</div></div>
+            <div class="tl-line"><div class="tl-dot"></div><div class="tl-vert"></div></div>
+            <div class="tl-body">
+              <div class="tl-name">Affton HS Music &amp; Art + Phelps Health</div>
+              <div class="tl-meta">Affton $30M · Rolla $5M</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date"><div class="d">Feb 19</div><div class="m">Thu</div></div>
+            <div class="tl-line"><div class="tl-dot"></div><div class="tl-vert"></div></div>
+            <div class="tl-body">
+              <div class="tl-name">West Plains Wholesale Grocery Building</div>
+              <div class="tl-meta">West Plains, MO · $6M · Warehouses</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-date"><div class="d">Feb 23</div><div class="m">Mon</div></div>
+            <div class="tl-line"><div class="tl-dot"></div><div class="tl-vert"></div></div>
+            <div class="tl-body">
+              <div class="tl-name">STL NDC Roof + Lambert Airport RFP + Glen Carbon WTP</div>
+              <div class="tl-meta">Hazelwood $6.8M · Lambert $6M · Glen Carbon $15M</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- OWNER TYPE + SPECS -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="card">
+        <div class="card-head"><h3>Owner Type</h3></div>
+        <div class="card-body">
+          <div class="bar-list">
+            <div class="bar-item">
+              <div class="bl-label">City</div>
+              <div class="bl-track"><div class="bl-fill" style="width:100%;background:#3730a3"></div></div>
+              <div class="bl-n">5</div>
+              <div class="bl-v">31%</div>
+            </div>
+            <div class="bar-item">
+              <div class="bl-label">County</div>
+              <div class="bl-track"><div class="bl-fill" style="width:75%;background:#c8922a"></div></div>
+              <div class="bl-n">5</div>
+              <div class="bl-v">31%</div>
+            </div>
+            <div class="bar-item">
+              <div class="bl-label">Private</div>
+              <div class="bl-track"><div class="bl-fill" style="width:50%;background:#166534"></div></div>
+              <div class="bl-n">3</div>
+              <div class="bl-v">19%</div>
+            </div>
+            <div class="bar-item">
+              <div class="bl-label">Federal</div>
+              <div class="bl-track"><div class="bl-fill" style="width:25%;background:#6b21a8"></div></div>
+              <div class="bl-n">2</div>
+              <div class="bl-v">12%</div>
+            </div>
+            <div class="bar-item">
+              <div class="bl-label">State / Provincial</div>
+              <div class="bl-track"><div class="bl-fill" style="width:12%;background:#164e63"></div></div>
+              <div class="bl-n">1</div>
+              <div class="bl-v">6%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3>Specs Available</h3></div>
+        <div class="card-body">
+          <div class="pie-wrap" style="flex-direction:column;gap:10px;">
+            <svg width="100%" height="10" style="border-radius:5px;overflow:hidden">
+              <rect x="0" y="0" width="94%" height="10" fill="#1e7e4a"/>
+              <rect x="94%" y="0" width="6%" height="10" fill="#c0392b"/>
+            </svg>
+            <div class="legend" style="flex-direction:row;gap:16px;">
+              <div class="leg-item"><div class="leg-dot" style="background:#1e7e4a"></div><div class="leg-lab">Yes</div><div class="leg-n">15</div><div class="leg-pct">94%</div></div>
+              <div class="leg-item"><div class="leg-dot" style="background:#c0392b"></div><div class="leg-lab">No</div><div class="leg-n">1</div><div class="leg-pct">6%</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end grid-3 -->
+
+  <!-- FULL PROJECT TABLE -->
+  <div class="card">
+    <div class="card-head">
+      <h3>All SE Bidding Projects</h3>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span style="font-size:10px;color:var(--muted);font-family:'IBM Plex Mono',monospace">16 projects · sorted by bid date</span>
+        <div class="chip" style="font-size:10px;padding:3px 10px;">🔍 Search</div>
+      </div>
+    </div>
+    <table class="proj-table">
+      <thead>
+        <tr>
+          <th>Project Title</th>
+          <th>City · State</th>
+          <th>Subcategory</th>
+          <th>Value</th>
+          <th>Bid Date</th>
+          <th>Start Date</th>
+          <th>Owner Type</th>
+          <th>Specs</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="t-title">Harris Elementary Interior Renovations<small>Multiple Locations</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Saint Charles, MO</span></td>
+          <td><div class="t-sub">Elementary, Pre Schools, High Schools</div></td>
+          <td><div class="t-val">$8.0M</div></td>
+          <td><div class="t-date ok">Feb 3</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Jun 1</div></td>
+          <td><span class="badge badge-city">City</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn">→ View</div></td>
+        </tr>
+        <tr>
+          <td><div class="t-title">Robinson Palestine WTP & Campus<small>10711 IL-1</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Robinson, IL</span></td>
+          <td><div class="t-sub">Tanks, Water & Sewage Treatment Plants</div></td>
+          <td><div class="t-val">$15.0M</div></td>
+          <td><div class="t-date ok">Feb 4</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Apr 6</div></td>
+          <td><span class="badge badge-city">City</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn">→ View</div></td>
+        </tr>
+        <tr>
+          <td><div class="t-title">Farmington Crossings<small>To be determined</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Farmington, MO</span></td>
+          <td><div class="t-sub">Shopping Centers</div></td>
+          <td><div class="t-val">$10.0M</div></td>
+          <td><div class="t-date ok">Feb 5</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Mar 22</div></td>
+          <td><span class="badge badge-private">Private</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn">→ View</div></td>
+        </tr>
+        <tr>
+          <td><div class="t-title">New 300,000 GPD WWTF<small>To Be Determined</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Villa Ridge, MO</span></td>
+          <td><div class="t-sub">Water & Sewage Treatment Plants</div></td>
+          <td><div class="t-val">$9.8M</div></td>
+          <td><div class="t-date ok">Feb 5</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Apr 6</div></td>
+          <td><span class="badge badge-county">County</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn">→ View</div></td>
+        </tr>
+        <tr>
+          <td><div class="t-title">UNICOR Marion RFQ Various Cables<small>To Be Determined</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Marion, IL</span></td>
+          <td><div class="t-sub">Manufacturing</div></td>
+          <td><div class="t-val">$10.0M</div></td>
+          <td><div class="t-date ok">Feb 6</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Mar 23</div></td>
+          <td><span class="badge badge-federal">Federal</span></td>
+          <td><span class="specs-no">✗ No</span></td>
+          <td><div class="action-btn">→ View</div></td>
+        </tr>
+        <tr style="background:#fff8f8">
+          <td><div class="t-title">Phase 5B Water System Improvements<small>To be determined</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Morley, MO</span></td>
+          <td><div class="t-sub">Sewers & Water Mains, Tanks, Treatment</div></td>
+          <td><div class="t-val">$10.4M</div></td>
+          <td><div class="t-date urgent">⚠ Feb 10</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Apr 13</div></td>
+          <td><span class="badge badge-county">County</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn" style="background:#fee2e2;color:var(--red);border-color:#fca5a5">⚠ Urgent</div></td>
+        </tr>
+        <tr style="background:#fff8f8">
+          <td><div class="t-title">Bioplex Bid Pkg 5 – Structural Concrete/Steel<small>625 Tim Bradley Way</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Rolla, MO</span></td>
+          <td><div class="t-sub">College, University</div></td>
+          <td><div class="t-val">$9.0M</div></td>
+          <td><div class="t-date urgent">⚠ Feb 10</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Apr 13</div></td>
+          <td><span class="badge badge-state">State</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn" style="background:#fee2e2;color:var(--red);border-color:#fca5a5">⚠ Urgent</div></td>
+        </tr>
+        <tr style="background:#fff8f8">
+          <td><div class="t-title">RFQ CM – Perry County SD 32 At-Risk<small>To Be Determined</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Perryville, MO</span></td>
+          <td><div class="t-sub">High Schools</div></td>
+          <td><div class="t-val">$25.0M</div></td>
+          <td><div class="t-date urgent">⚠ Feb 10</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Nov 2</div></td>
+          <td><span class="badge badge-county">County</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn" style="background:#fee2e2;color:var(--red);border-color:#fca5a5">⚠ Urgent</div></td>
+        </tr>
+        <tr style="background:#fff8f8">
+          <td><div class="t-title">Capital Flooring Replacement<small>455 N Woods Mill Rd</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Chesterfield, MO</span></td>
+          <td><div class="t-sub">High Schools</div></td>
+          <td><div class="t-val">$5.0M</div></td>
+          <td><div class="t-date urgent">⚠ Feb 12</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Apr 13</div></td>
+          <td><span class="badge badge-county">County</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn" style="background:#fee2e2;color:var(--red);border-color:#fca5a5">⚠ Urgent</div></td>
+        </tr>
+        <tr style="background:#fff8f8">
+          <td><div class="t-title">Altair on Main<small>Imperial Main St & Old State Rd</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Imperial, MO</span></td>
+          <td><div class="t-sub">Apartments, Athletic Bldgs, Community Ctrs</div></td>
+          <td><div class="t-val" style="color:var(--gold)">$43.0M ★</div></td>
+          <td><div class="t-date urgent">⚠ Feb 13</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Mar 9</div></td>
+          <td><span class="badge badge-private">Private</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn" style="background:#fee2e2;color:var(--red);border-color:#fca5a5">⚠ Urgent</div></td>
+        </tr>
+        <tr>
+          <td><div class="t-title">Affton HS Music & Art Addition & Renovations<small>8309 MacKenzie Rd</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Affton, MO</span></td>
+          <td><div class="t-sub">High Schools</div></td>
+          <td><div class="t-val">$30.0M</div></td>
+          <td><div class="t-date soon">Feb 17</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Mar 4</div></td>
+          <td><span class="badge badge-city">City</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn">→ View</div></td>
+        </tr>
+        <tr>
+          <td><div class="t-title">Phelps Health Capital Improvements – BP#1<small>1000 West 10th Street</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Rolla, MO</span></td>
+          <td><div class="t-sub">Hospitals, Clinics</div></td>
+          <td><div class="t-val">$5.0M</div></td>
+          <td><div class="t-date soon">Feb 17</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Apr 3</div></td>
+          <td><span class="badge badge-private">Private</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn">→ View</div></td>
+        </tr>
+        <tr>
+          <td><div class="t-title">West Plains Wholesale Grocery – Provalus<small>601 Washington Ave</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">West Plains, MO</span></td>
+          <td><div class="t-sub">Warehouses</div></td>
+          <td><div class="t-val">$6.0M</div></td>
+          <td><div class="t-date">Feb 19</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Mar 12</div></td>
+          <td><span class="badge badge-city">City</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn">→ View</div></td>
+        </tr>
+        <tr>
+          <td><div class="t-title">St. Louis MO NDC Roof Replacement<small>5800 Phantom Dr</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Hazelwood, MO</span></td>
+          <td><div class="t-sub">Post Offices</div></td>
+          <td><div class="t-val">$6.8M</div></td>
+          <td><div class="t-date">Feb 23</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Mar 23</div></td>
+          <td><span class="badge badge-federal">Federal</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn">→ View</div></td>
+        </tr>
+        <tr>
+          <td><div class="t-title">RFP Contractor – Lambert Airport Terminal Cleaning<small>To be determined</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Lambert Airport, MO</span></td>
+          <td><div class="t-sub">Airport</div></td>
+          <td><div class="t-val">$6.0M</div></td>
+          <td><div class="t-date">Feb 23</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Apr 9</div></td>
+          <td><span class="badge badge-city">City</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn">→ View</div></td>
+        </tr>
+        <tr>
+          <td><div class="t-title">Glen Carbon Water Treatment Plant<small>Multiple Locations</small></div></td>
+          <td><span style="font-family:'IBM Plex Mono',monospace;font-size:11px">Glen Carbon, IL</span></td>
+          <td><div class="t-sub">Sewers & Water Mains, Treatment Plants</div></td>
+          <td><div class="t-val">$15.0M</div></td>
+          <td><div class="t-date">Feb 23</div></td>
+          <td><div class="t-date" style="color:var(--muted)">Apr 24</div></td>
+          <td><span class="badge badge-city">City</span></td>
+          <td><span class="specs-yes">✓ Yes</span></td>
+          <td><div class="action-btn">→ View</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end main -->
+
+<div class="footer">
+  <span>SE Region · ConstructConnect Export · Updated Feb 10, 2026</span>
+  <span>Dashboard built by BBB Techs Data Visualization · Refreshed weekly</span>
+</div>
+
+</body>
+</html>
