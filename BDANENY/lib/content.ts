@@ -64,14 +64,46 @@ export const PILLARS = [
   },
 ] as const;
 
-export const EVENT = {
-  badge: "Upcoming event",
-  title: "2026 Cornhole Tournament",
-  date: "Sunday, July 12, 2026",
-  location: "Fort Orange Brewing Company · Albany, NY",
-  body: "Bring a partner, a team, or just yourself. Every board tossed helps fund the programs that support our families. Good beer, better company, all for a cause.",
-  cta: { label: "Save your spot", href: "#involve" },
-};
+export const EVENTS = [
+  {
+    id: "cornhole",
+    badge: "Upcoming event",
+    title: "2026 Cornhole Tournament",
+    date: "Sunday, July 12, 2026",
+    location: "Fort Orange Brewing Company · Albany, NY",
+    body: [
+      "Bring a partner, a team, or just yourself. Every board tossed helps fund the programs that support our families. Good beer, better company, all for a cause.",
+    ],
+    cta: { label: "Register Here", href: "#involve" },
+    card: {
+      month: "07",
+      day: "12",
+      title: "2026 Cornhole Tournament",
+      location: "Fort Orange Brewing Company · Albany, NY",
+    },
+  },
+  {
+    id: "annual-meeting",
+    badge: "Upcoming event",
+    title: "Annual Meeting",
+    date: "Sunday, November 15",
+    location: "Apex Entertainment (Crossgates Mall, Albany)",
+    body: [
+      "Join us for a day of education and fun!",
+      "Check in with our vendors and be in a drawing to win a prize.",
+      "Enjoy a delicious lunch and meet the new ED.",
+      "Then it's off to bumper cars, bowling or the arcade.",
+      "The fun starts at 11:00 am.",
+    ],
+    cta: { label: "Register Here", href: "#involve" },
+    card: {
+      month: "11",
+      day: "15",
+      title: "Annual Meeting",
+      location: "Apex Entertainment · Crossgates Mall, Albany",
+    },
+  },
+] as const;
 
 export const ADVOCACY = {
   kicker: "Advocacy",
