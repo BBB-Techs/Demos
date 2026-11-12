@@ -355,6 +355,20 @@ svg text{font-family:var(--f-body)}
 .detect{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .detect > div{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface)}
 .detect b{display:block;font-size:13.5px}
+.mail{display:grid;grid-template-columns:minmax(240px,340px) minmax(0,1fr);gap:16px;align-items:start}
+.mlist{display:flex;flex-direction:column}
+.mi{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:3px;padding:12px 16px;border-bottom:1px solid var(--line);width:100%}
+.mi:hover{background:var(--surface-2)}
+.mi.on{background:var(--accent-soft)}
+.mi:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.mi .l1{display:flex;justify-content:space-between;gap:8px;font-size:13.5px}
+.mi .l2{font-size:13px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mi .l3{font-size:12.5px;color:var(--ink-3);display:flex;gap:6px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;display:inline-block}
+.ai-sum{border:1px solid var(--line);background:var(--accent-soft);border-radius:14px;padding:12px 14px;font-size:13.5px}
+.attach{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:var(--surface)}
+.draft{border:1px dashed var(--line);border-radius:14px;padding:12px 14px;font-size:13.5px;background:var(--surface-2);white-space:pre-line}
+@media (max-width:900px){.mail{grid-template-columns:minmax(0,1fr)}}
 .callout{display:flex;gap:10px;align-items:flex-start;border-radius:14px;padding:12px 14px;background:var(--warn-soft);color:var(--ink);font-size:13px}
 .callout svg{width:18px;height:18px;flex:none;color:var(--warn);margin-top:1px}
 .callout.blue{background:var(--accent-soft)}
@@ -500,6 +514,8 @@ const I = {
   box:'<path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7"/>',
   link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
   pin:'<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+  principals:'<path d="M4 20V8l8-4 8 4v12M9 20v-6h6v6M8 10h.01M12 10h.01M16 10h.01"/>',
+  inbox:'<path d="M4 13l2-8h12l2 8M4 13v6h16v-6M4 13h5l1 2h4l1-2h5"/>',
   play:'<path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/>'
 };
 const ic = (n,extra='') => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" ${extra}>${I[n]}</svg>`;
@@ -507,8 +523,10 @@ const ic = (n,extra='') => `<svg viewBox="0 0 24 24" fill="none" stroke="current
 const NAV = [
   {group:'Sales', items:[
     {id:'today', label:'Today', roles:['admin','outside']},
+    {id:'inbox', label:'Inbox', roles:['admin','outside'], badge:'4', bcls:'blue'},
     {id:'digest', label:'Daily digest', roles:['admin'], badge:'New', bcls:'blue'},
     {id:'accounts', label:'Accounts', roles:['admin','outside']},
+    {id:'principals', label:'Principals', roles:['admin','outside'], badge:'New', bcls:'blue'},
     {id:'activity', label:'Activity & ROI', roles:['admin','outside']},
     {id:'map', label:'Customer map', roles:['admin','outside']}
   ]},
@@ -591,7 +609,7 @@ const chg = n => `<span class="${n>=0?'up':'down'}">${n>=0?'▲':'▼'} ${Math.a
 const initials = s => s.split(/\s+/).filter(w=>/^[A-Z]/.test(w)).slice(0,2).map(w=>w[0]).join('');
 const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-const S = { role:'admin', acct:'apb', site:'all', typeF:'All', terrF:'all', repF:'all', so:'SO-24115', city:'Mobile', tab:'activity', picks:[true,false,false], recv:[false,false], fu:[false,true,false,false] };
+const S = { mail:0, role:'admin', acct:'apb', site:'all', typeF:'All', terrF:'all', repF:'all', so:'SO-24115', city:'Mobile', tab:'activity', picks:[true,false,false], recv:[false,false], fu:[false,true,false,false] };
 const TERRS = {all:'All territories', mb:'North Alabama', kw:'Gulf Coast', rd:'Mississippi', at:'Louisiana'};
 const LOGO = id => ['#2563eb','#0891b2','#7c3aed','#d97706','#047857','#db2777'][[...id].reduce((s,c)=>s+c.charCodeAt(0),0)%6];
 const store = { get(k){try{return localStorage.getItem(k)}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}} };
@@ -663,7 +681,7 @@ V.today = () => {
   const alerts = ITEMS.filter(x=>x.site!=='drop' && x.on-x.com < x.rop*0.6);
   return `
   <div class="hero-band"><div style="position:relative;z-index:1"><div class="eyebrow">Tuesday, November 10</div><h1>Good morning, ${S.role==='admin'?'Jessica':'Marcus'}</h1><p class="sub">${S.role==='admin'?'Team view across 4 territories. 23 calls were logged yesterday.':'North Alabama · 3 calls planned · 2 follow-ups due today.'}</p></div>
-    <div class="actions"><button class="btn" data-action="ask">${ic('spark')}Ask about an account</button><button class="btn primary" data-action="voice">${ic('mic')}Log a call</button></div></div>
+    <div class="actions"><button class="btn" data-action="outlook">${ic('mail')}Outlook add-in</button><button class="btn" data-action="ask">${ic('spark')}Ask about an account</button><button class="btn primary" data-action="voice">${ic('mic')}Log a call</button></div></div>
   <div class="grid g-4 keep">
     <div class="card stat"><span class="si">${ic('phone')}</span><span class="eyebrow">Calls this week</span><span class="v">11<span class="faint" style="font-size:16px;font-weight:600"> / 15</span></span><div class="meter"><i style="width:73%"></i></div><span class="d">Goal set by Andrew</span></div>
     <div class="card stat"><span class="si">${ic('trend')}</span><span class="eyebrow">Pull-through MTD</span><span class="v">6</span><span class="sp">${spark([2,3,2,4,3,5,6])}</span><span class="d"><span class="up">▲ 2</span> vs. October pace</span></div>
@@ -863,7 +881,7 @@ V.orders = () => {
   const at = cur.stage;
   return `
   <div class="page-head"><div><h1>Orders & POs</h1><p class="sub">Paperless from sales order to invoice. Nothing gets lost between the warehouse and accounting.</p></div>
-    <div class="actions"><button class="btn primary" data-toast="Opens a new sales order. Pick an account, add items or kits.">${ic('plus')}New sales order</button></div></div>
+    <div class="actions"><button class="btn" data-action="po">${ic('scan')}Drop a PO</button><button class="btn primary" data-toast="Opens a new sales order. Pick an account, add items or kits.">${ic('plus')}New sales order</button></div></div>
   <div class="kanban">${STAGES.map((st,i)=>{const os=ORDERS.filter(o=>o.stage===i);return `<div class="col"><div class="col-h">${st}<span class="n num">${os.length}</span></div>${os.map(o=>`<button class="so ${o.so===cur.so?'on':''}" data-so="${o.so}"><div class="l1"><span class="mono">${o.so}</span><span class="faint">${o.date}</span></div><span class="acct">${A(o.acct).name}</span><div class="l1"><span class="faint">${o.lines} lines · ${o.ship}</span><span class="num" style="font-weight:600">${fmt$(o.total)}</span></div>${o.direct?`<span class="pill blue" style="width:fit-content">${ic('link','width="11" height="11"')} ${o.direct}</span>`:''}</button>`).join('')}</div>`}).join('')}</div>
   <div class="card"><div class="card-h" style="flex-wrap:wrap"><h2><span class="mono" style="font-size:15px">${cur.so}</span> · ${a.name}</h2>${cur.direct?'<span class="pill blue">Direct ship</span>':''}<div class="right" style="flex-wrap:wrap"><button class="btn sm" data-toast="Prints the packing slip.">${ic('printer')}Packing slip</button><button class="btn sm" data-toast="Prints the sales order.">${ic('printer')}Sales order</button>${cur.direct?'':`<button class="btn sm primary" data-toast="Creates a PO to the factory from this sales order and ships it straight to the customer.">${ic('link')}Create PO from SO</button>`}</div></div>
     <div class="card-b"><div class="flow">${steps.map((s,i)=>`<div class="step ${i<at?'done':i===at?'now':''}"><span class="b">${i<at?'✓':i+1}</span>${s}</div>`).join('')}</div>
@@ -944,6 +962,104 @@ V.access = () => {
   <div class="grid g-2">${ints.map(i=>`<div class="card int"><div class="logo" style="background:${i[1]}">${i[0]}</div><div style="min-width:0;flex:1"><h3>${i[2]}</h3><p class="muted" style="font-size:13px;margin-top:2px">${i[3]}</p><span class="pill ${i[4].startsWith('Manual')?'gray':'good'}" style="margin-top:8px">${i[4]}</span></div></div>`).join('')}</div>`;
 };
 
+V.principals = () => {
+  const P = [
+    {id:'taco', name:'TACO', color:'#0891b2', ytd:2140000, prior:1925000, trend:[150,162,158,171,180,176,190], quotes:7, quoteVal:186400, calls:48, accts:['apb','pcp','cps','ecs'], note:'Zone valve and circulator demand up ahead of the cold snap.'},
+    {id:'cth', name:'Centrotherm', color:'#7c3aed', ytd:1310000, prior:1362000, trend:[120,118,112,109,104,108,101], quotes:4, quoteVal:92700, calls:31, accts:['apb','mcm','sde','rcs'], note:'Down 4%. Hoover Middle School venting spec could reverse it.'},
+    {id:'spp', name:'Specialty piping', color:'#d97706', ytd:690000, prior:590000, trend:[48,52,55,51,60,63,68], quotes:5, quoteVal:121300, calls:22, accts:['apb','rcs','gsm'], note:'Quote Q-4471 (American Pipe) is the largest open item.'}
+  ];
+  const tot = P.reduce((n,x)=>n+x.ytd,0), totPrior = P.reduce((n,x)=>n+x.prior,0);
+  return `
+  <div class="page-head"><div><h1>Principals</h1><p class="sub">Sales, activity and open quotes per manufacturer. Show each principal what you are doing for their line.</p></div>
+    <div class="actions"><button class="btn" data-toast="Sample: sends this month's activity and sales summary to the principal's contact.">${ic('mail')}Send monthly report</button><button class="btn primary" data-toast="Sample: pushes call notes into the principal's own CRM so reps type once.">${ic('link')}Send to principal</button></div></div>
+  <div class="grid g-3 keep">
+    <div class="card stat"><span class="eyebrow">Sales YTD, all lines</span><span class="v">${fmtK(tot)}</span><span class="d">${chg((tot-totPrior)/totPrior)} vs. last year</span></div>
+    <div class="card stat"><span class="eyebrow">Open quotes</span><span class="v">${P.reduce((n,x)=>n+x.quotes,0)}</span><span class="d">${fmtK(P.reduce((n,x)=>n+x.quoteVal,0))} quoted, not yet ordered</span></div>
+    <div class="card stat"><span class="eyebrow">Calls logged, 90 days</span><span class="v">${P.reduce((n,x)=>n+x.calls,0)}</span><span class="d">Tagged to a product line</span></div>
+  </div>
+  <div class="grid g-3">${P.map(x=>`
+    <div class="card"><div class="card-h"><span class="mini-logo" style="background:${x.color}">${initials(x.name)}</span><h2>${x.name}</h2><div class="right">${chg((x.ytd-x.prior)/x.prior)}</div></div>
+      <div class="card-b" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div class="eyebrow">Sales YTD</div><b class="num" style="font-size:22px">${fmtK(x.ytd)}</b></div>${spark(x.trend,x.color,110,30)}</div>
+        <div class="field-row"><span>Open quotes</span><b>${x.quotes} · ${fmtK(x.quoteVal)}</b></div>
+        <div class="field-row"><span>Calls, 90 days</span><b>${x.calls}</b></div>
+        <div><div class="eyebrow" style="margin-bottom:6px">Top accounts</div>${x.accts.map(id=>{const a=A(id);return `<a href="#account" data-acct="${a.id}" class="row-m" style="display:flex;justify-content:space-between;color:inherit;text-decoration:none;padding:3px 0"><span>${a.name}</span><span class="num">${chg(a.chg)}</span></a>`}).join('')}</div>
+        <p class="muted" style="font-size:13px">${x.note}</p>
+      </div></div>`).join('')}</div>
+  <div class="card"><div class="card-h"><h2>Principal scorecard</h2><span class="pill blue">What you show each principal</span><div class="right"><button class="btn sm" data-toast="Sample: exports a one-page scorecard PDF per principal, ready to send.">${ic('download')}Export scorecards</button></div></div>
+    <div class="card-b" style="padding:12px 0 0"><div class="tbl-wrap"><table><thead><tr><th>Principal</th><th>Goal attainment</th><th>Quote win rate</th><th>Pull-through calls</th><th>Calls per $100K sold</th><th>Best rep</th></tr></thead><tbody>
+    ${[['TACO','#0891b2',2140000,2300000,'38%',19,2.2,'Marcus Bell'],['Centrotherm','#7c3aed',1310000,1500000,'24%',11,2.4,'Kendra Wells'],['Specialty piping','#d97706',690000,650000,'41%',9,3.2,'Ray Dupree']].map(r=>{const at=r[2]/r[3];return `<tr><td><span class="mini-logo" style="background:${r[1]};margin-right:8px">${initials(r[0])}</span><b>${r[0]}</b></td><td style="min-width:190px"><div style="display:flex;align-items:center;gap:8px"><div style="flex:1;height:8px;border-radius:99px;background:var(--surface-2);border:1px solid var(--line);overflow:hidden"><i style="display:block;height:100%;width:${Math.min(100,Math.round(at*100))}%;background:${at>=1?'var(--good)':at>=.9?'var(--accent)':'var(--warn)'}"></i></div><b class="num">${Math.round(at*100)}%</b></div><div class="row-m">${fmtK(r[2])} of ${fmtK(r[3])} goal</div></td><td class="num">${r[4]}</td><td class="num">${r[5]}</td><td class="num">${r[6]}</td><td>${r[7]}</td></tr>`}).join('')}
+    </tbody></table></div></div></div>
+  <p class="faint" style="font-size:12px">All figures are invented sample data for this mockup.</p>`;
+};
+
+/* ---------- FlowMail-style inbox ---------- */
+const MAILS = [
+  {from:'Dana Pruitt', acct:'apb', subj:'RE: Quote Q-4471 specialty piping', t:'9:12 AM', unread:true, tag:['Quote request','blue'],
+   body:"Can you hold pricing through end of month? We'd like to order 300 ft before the Hoover job starts.",
+   sum:'Dana asks to hold Q-4471 pricing through Nov 30 and plans to order about 300 ft before the Hoover Middle job starts.', chips:['Account: American Pipe Birmingham','Quote Q-4471','Line: Specialty piping'],
+   draft:"Hi Dana,\n\nYes, we can hold Q-4471 pricing through Nov 30. I have attached the quote with 300 ft of 2\" specialty pipe at the quoted rate. Let me know when you want to release it.\n\nMarcus", actions:['Reply with quote','Set follow-up for Fri, Nov 13']},
+  {from:'Marcus Tolliver', acct:'gsm', subj:'PO 77302 attached', t:'8:40 AM', unread:true, tag:['Order','good'], attach:'PO-77302.pdf',
+   body:"Attached is our PO for the zone valves and circulators we discussed. Please confirm ship date.",
+   sum:'Gulf South Mechanical sent a purchase order with 3 line items and wants a ship date confirmed.', chips:['Account: Gulf South Mechanical','Line: TACO'],
+   draft:"Hi Marcus,\n\nThanks for the PO. We are entering it now. Items are in stock at the Main warehouse and can ship Friday. Tracking will follow.\n\nKendra", actions:['Extract PO with AI','Reply to confirm ship date']},
+  {from:'Emerald Coast Supply', acct:'ecs', subj:'Stock order status SO-24118', t:'Yesterday', unread:true, tag:['Question','warn'],
+   body:"Checking on SO-24118. Is it going out with the Thursday truck?",
+   sum:'Asks if SO-24118 ships on the Thursday truck. The order is packed and ready to go.', chips:['Account: Emerald Coast Supply','Order SO-24118'],
+   draft:"Hi,\n\nSO-24118 is packed and goes out on Thursday's truck. I will send tracking as soon as it leaves.\n\nKendra", actions:['Reply with status','Open order']},
+  {from:'Port City Plumbing Supply', acct:'pcp', subj:'Direct-ship PO-8814 tracking?', t:'Yesterday', unread:true, tag:['Question','warn'],
+   body:"Do you have a tracking number for the direct-ship order yet?",
+   sum:'Wants the tracking number for direct-ship PO-8814. Tracking was added by the factory last week.', chips:['Account: Port City Plumbing Supply','PO-8814'],
+   draft:"Hi,\n\nTracking for PO-8814 is on the order record and I have pasted it below. It is due Thursday.\n\nKendra", actions:['Reply with tracking','Open order']}
+];
+V.inbox = () => {
+  const m = MAILS[S.mail] || MAILS[0]; const a=A(m.acct);
+  return `
+  <div class="page-head"><div><h1>Inbox</h1><p class="sub">Your Microsoft 365 email, already linked to accounts, quotes and orders. Nothing to copy and paste.</p></div>
+    <div class="actions"><button class="btn" data-action="outlook">${ic('mail')}Outlook add-in</button><button class="btn primary" data-toast="Sample: opens a new email with the account and contact pre-filled.">${ic('plus')}New email</button></div></div>
+  <div class="mail">
+    <div class="card"><div class="card-h"><h2>Needs you</h2><span class="pill blue">AI sorted</span></div><div class="mlist">
+      ${MAILS.map((x,i)=>`<button class="mi ${i===S.mail?'on':''}" data-mail="${i}"><div class="l1"><b>${x.from}</b><span class="faint">${x.t}</span></div><div class="l2">${x.unread?'<span class="dot"></span> ':''}${x.subj}</div><div class="l3"><span class="pill ${x.tag[1]}">${x.tag[0]}</span>${x.attach?ic('link','width="13" height="13"'):''}<span>${A(x.acct).name}</span></div></button>`).join('')}
+    </div></div>
+    <div class="card"><div class="card-h" style="flex-wrap:wrap"><span class="mini-logo" style="background:${LOGO(a.id)}">${initials(a.name)}</span><div><h2>${m.subj}</h2><div class="row-m">${m.from} · ${a.name} · ${m.t}</div></div></div>
+      <div class="card-b" style="display:flex;flex-direction:column;gap:14px">
+        <div class="ai-sum"><div class="eyebrow" style="margin-bottom:4px">${ic('spark','width="13" height="13" style="vertical-align:-2px"')} AI summary</div>${m.sum}</div>
+        <p style="font-size:14px">"${m.body}"</p>
+        ${m.attach?`<div class="attach"><div class="ico">${ic('orders')}</div><div style="flex:1"><b>${m.attach}</b><div class="row-m">PDF · 2 pages</div></div><button class="btn primary sm" data-action="po">${ic('scan')}Extract with AI</button></div>`:''}
+        <div class="chips"><span class="faint" style="font-size:12px;width:100%">Linked automatically</span>${m.chips.map(c=>`<span class="pill gray">${ic('link','width="12" height="12" style="vertical-align:-2px"')} ${c}</span>`).join('')}</div>
+        <div><div class="eyebrow" style="margin-bottom:6px">AI draft reply</div><div class="draft">${m.draft.replace(/\n/g,'\n')}</div></div>
+        <div class="chips">${m.actions.map(x=>(x==='Extract PO with AI'?`<button class="chip" data-action="po">${x}</button>`:`<button class="chip" data-toast="Sample: ${x}.">${x}</button>`)).join('')}<button class="btn primary sm" data-toast="Sample: sends the reply and files it on ${esc(a.name)}.">${ic('mail')}Send reply</button></div>
+      </div></div>
+  </div>
+  <p class="faint" style="font-size:12px">Sample emails and AI text, invented for this mockup. Works with Microsoft 365 login.</p>`;
+};
+
+/* ---------- drop a PO (AI extraction) ---------- */
+function openPO(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const lines=[['TAC-007E','TACO 007e circulator',6,'$212.00','$1,272.00'],['TAC-0015E3','TACO 0015e3 circulator',24,'$168.00','$4,032.00'],['ZV-3-4','TACO 3/4" zone valve',12,'$54.00','$648.00']];
+  const draw = done => {
+    layer.innerHTML = `<div class="scrim" data-close><div class="modal" role="dialog" aria-modal="true" aria-label="Drop a PO">
+      <div class="modal-h"><div class="ico">${ic('scan')}</div><div><h2>Drop a PO or price sheet</h2><div class="row-m">The app reads PDFs, photos and emailed files and fills in the order.</div></div><button class="icon-btn x" data-x aria-label="Close">${ic('x')}</button></div>
+      <div class="modal-b">
+        <div class="attach"><div class="ico">${ic('orders')}</div><div style="flex:1"><b>PO-77302.pdf</b><div class="row-m">From Marcus Tolliver · Gulf South Mechanical · 2 pages</div></div><span class="pill ${done?'good':'blue'}">${done?'Read':'Reading…'}</span></div>
+        ${done?`
+        <div class="detect"><div><span class="eyebrow">Customer</span><b>${A('gsm').name}</b></div><div><span class="eyebrow">Customer PO</span><b class="mono">77302</b></div><div><span class="eyebrow">Requested ship</span><b>Fri, Nov 13</b></div><div><span class="eyebrow">Ship to</span><b>${A('gsm').city}, ${A('gsm').st}</b></div></div>
+        <div class="tbl-wrap"><table><thead><tr><th>SKU</th><th>Item</th><th style="text-align:right">Qty</th><th style="text-align:right">Price</th><th style="text-align:right">Total</th></tr></thead><tbody>${lines.map(l=>`<tr><td class="mono">${l[0]}</td><td>${l[1]}</td><td class="num" style="text-align:right">${l[2]}</td><td class="num" style="text-align:right">${l[3]}</td><td class="num" style="text-align:right">${l[4]}</td></tr>`).join('')}</tbody></table></div>
+        <div class="callout blue">${ic('link')}<span>Customer and all 3 SKUs matched. Total <b>$5,952.00</b>, and all items are available at the Main warehouse.</span></div>
+        <div class="callout">${ic('alert')}<span><b>Check one line:</b> the PO price for TAC-0015E3 is $168.00 but the current price list says $171.00. Pick which to use before saving.</span></div>`
+        :`<div class="cam" style="height:160px;display:flex;align-items:center;justify-content:center"><span class="muted">Reading the document…</span></div>`}
+      </div>
+      <div class="modal-f"><button class="btn" data-x>Cancel</button><button class="btn primary" id="po-save" ${done?'':'disabled'}>${ic('check')}Create sales order</button></div>
+    </div></div>`;
+    layer.querySelector('.scrim').addEventListener('click',e=>{ if(e.target.classList.contains('scrim')) closeLayer(); });
+    layer.querySelectorAll('[data-x]').forEach(b=>b.addEventListener('click',closeLayer));
+    const sv=document.getElementById('po-save'); if(sv) sv.addEventListener('click',()=>{ closeLayer(); toast('Sales order drafted from PO 77302. Review it in Orders & POs.'); });
+  };
+  draw(false);
+  if(reduce) draw(true); else setTimeout(()=>{ if(layer.querySelector('[aria-label="Drop a PO"]')) draw(true); },1300);
+}
+
 /* ---------- router ---------- */
 function render(){
   let r = (location.hash||'').slice(1) || home();
@@ -962,11 +1078,12 @@ function go(r){ if(location.hash==='#'+r) render(); else location.hash=r; }
 
 document.addEventListener('click', e=>{
   if(e.target.closest('#layer .cmdk-list')) return;
-  const el = e.target.closest('[data-acct],[data-go],[data-action],[data-toast],[data-typef],[data-repf],[data-site],[data-so],[data-tab],[data-pick],[data-recv],[data-fu]');
+  const el = e.target.closest('[data-acct],[data-go],[data-action],[data-toast],[data-typef],[data-repf],[data-site],[data-so],[data-mail],[data-tab],[data-pick],[data-recv],[data-fu]');
   if(!el) return;
   const d = el.dataset;
   if(d.acct){ S.acct=d.acct; S.tab='activity'; }
   if(d.so) S.so=d.so;
+  if(d.mail!==undefined){ S.mail=+d.mail; render(); return; }
   if(d.typef){ S.typeF=d.typef; render(); return; }
   if(d.repf){ S.repF=d.repf; render(); return; }
   if(d.site){ S.site=d.site; render(); return; }
@@ -979,6 +1096,8 @@ document.addEventListener('click', e=>{
   if(d.action==='card'){ e.preventDefault(); openCard(); return; }
   if(d.action==='voice'){ e.preventDefault(); openVoice(); return; }
   if(d.action==='ask'){ e.preventDefault(); openAsk(); return; }
+  if(d.action==='po'){ e.preventDefault(); openPO(); return; }
+  if(d.action==='outlook'){ e.preventDefault(); openOutlook(); return; }
   if(d.action==='ask-inline'){ toast('Answers come from calls, emails, sales and inventory for this account.'); return; }
   if(d.action==='scan'){ const n=S.picks.indexOf(false); if(n>=0){S.picks[n]=true; render(); toast('Scanned. Bin and quantity confirmed.');} return; }
   if(d.action==='complete-pick'){ toast('SO-24117 packed. Accounting has it for invoicing.'); S.picks=[false,false,false]; render(); return; }
@@ -994,7 +1113,7 @@ function openCmdk(){
     <div class="cmdk-in">${ic('search','width="18" height="18"')}<input id="cmdk-q" placeholder="Search accounts, SKUs, orders, or type a command" aria-label="Search" autocomplete="off"><span class="kbd">Esc</span></div>
     <div class="cmdk-list" id="cmdk-list"></div></div></div>`;
   const q=document.getElementById('cmdk-q'), list=document.getElementById('cmdk-list');
-  const acts=[['mic','Log a call','voice'],['card','Scan a business card','card'],['spark','Ask TMA Hub','ask'],['digest','Open daily digest','#digest'],['map','Plan a trip','#map']];
+  const acts=[['mic','Log a call','voice'],['card','Scan a business card','card'],['spark','Ask TMA Hub','ask'],['mail','Preview Outlook add-in','outlook'],['inbox','Open inbox','#inbox'],['scan','Drop a PO or price sheet','po'],['principals','Open principal view','#principals'],['digest','Open daily digest','#digest'],['map','Plan a trip','#map']];
   function paint(){
     const v=q.value.trim().toLowerCase();
     const a=ACCTS.filter(x=>!v||x.name.toLowerCase().includes(v)||x.city.toLowerCase().includes(v)).slice(0,5);
@@ -1012,7 +1131,7 @@ function openCmdk(){
   q.addEventListener('keydown',e=>{ if(e.key==='Enter'){ const f=list.querySelector('[data-cmd]'); if(f) f.click(); }});
   layer.querySelector('.scrim').addEventListener('click',e=>{ if(e.target.classList.contains('scrim')) closeLayer(); });
   list.addEventListener('click',e=>{ const b=e.target.closest('[data-cmd]'); if(!b) return; const c=b.dataset.cmd; closeLayer();
-    if(c==='voice') openVoice(); else if(c==='card') openCard(); else if(c==='ask') openAsk();
+    if(c==='voice') openVoice(); else if(c==='outlook') openOutlook(); else if(c==='po') openPO(); else if(c==='card') openCard(); else if(c==='ask') openAsk();
     else if(c.startsWith('acct:')){ S.acct=c.slice(5); S.tab='activity'; go('account'); }
     else if(c.startsWith('so:')){ S.so=c.slice(3); go('orders'); }
     else go(c.slice(1)); });
@@ -1098,6 +1217,33 @@ function openAsk(){
   </aside>`;
   layer.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>closeLayer()));
   layer.querySelector('[data-close-toast]').addEventListener('click',()=>toast('The assistant reads only what your role can see.'));
+}
+
+/* ---------- Outlook add-in preview ---------- */
+function openOutlook(){
+  const a = A('apb');
+  layer.innerHTML = `<div class="scrim" data-close style="background:rgba(5,12,30,.35)"></div><aside class="drawer" role="dialog" aria-label="Outlook add-in" style="width:min(520px,100%)">
+    <div class="modal-h"><div class="ico">${ic('mail')}</div><div><h2>TMA Hub in Outlook</h2><div class="row-m">A side panel next to any email. Sample preview.</div></div><button class="icon-btn x" data-close aria-label="Close">${ic('x')}</button></div>
+    <div class="modal-b" style="gap:14px">
+      <div class="card" style="box-shadow:none"><div class="card-b" style="display:flex;flex-direction:column;gap:6px">
+        <div class="eyebrow">Email from Dana Pruitt</div><b>RE: Quote Q-4471 specialty piping</b>
+        <p class="muted" style="font-size:13px">"Can you hold pricing through end of month? We'd like to order 300 ft before the Hoover job starts."</p></div></div>
+      <div class="callout blue">${ic('link')}<span>Matched automatically to <b>${a.name}</b> and contact <b>Dana Pruitt</b>. Nothing to copy and paste.</span></div>
+      <div><div class="eyebrow" style="margin-bottom:6px">Account snapshot</div>
+        <div class="field-row"><span>Sales YTD</span><b>${fmtK(a.ytd)} ${chg((a.ytd-a.prior)/a.prior)}</b></div>
+        <div class="field-row"><span>Last call</span><b>${a.last} day ago</b></div>
+        <div class="field-row"><span>Open quote</span><b>Q-4471 · specialty piping</b></div></div>
+      <div class="chips"><span class="faint" style="font-size:12px;width:100%">Create from this email</span>
+        <button class="chip" data-otoast="Follow-up task created for Fri, Nov 13.">Follow-up task</button>
+        <button class="chip" data-otoast="Quote linked to the account and the Specialty piping line.">Link to quote</button>
+        <button class="chip" data-otoast="Contact saved. Future emails from this address file automatically.">Save contact</button>
+        <button class="chip" data-otoast="Call-type note added: Quote follow-up.">Log as call</button></div>
+      <div class="callout">${ic('alert')}<span>If the sender's company isn't in TMA Hub yet, the panel offers to create the account in one click.</span></div>
+    </div>
+    <div class="modal-f"><span class="faint" style="font-size:12px;margin-right:auto">Works in Outlook on the web and desktop, with a Microsoft 365 login.</span><button class="btn primary" data-close>Done</button></div>
+  </aside>`;
+  layer.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>closeLayer()));
+  layer.querySelectorAll('[data-otoast]').forEach(el=>el.addEventListener('click',()=>toast(el.dataset.otoast)));
 }
 
 render();
