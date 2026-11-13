@@ -1,54 +1,61 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "motion/react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import Image from "next/image";
+import { motion, useReducedMotion } from "motion/react";
 import { Reveal } from "./motion";
-import { EVENTS } from "@/lib/content";
+import { PHOTOS, upcomingEvents } from "@/lib/content";
+import { withBasePath } from "@/lib/basePath";
 
 const AUTO_ADVANCE_MS = 5000;
 const FADE = { duration: 0.45, ease: [0.16, 1, 0.3, 1] as const };
 
 export default function EventSpotlight() {
-  const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
-  const [index, setIndex] = useState(0);
-  const count = EVENTS.length;
+  // Upcoming events only (past dates are filtered out).
+  const events = useMemo(() => upcomingEvents(), []);
+  const eventCount = events.length;
+  const [eventIndex, setEventIndex] = useState(0);
+  // Photo card on the right: photos shown one after another.
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const photoCount = PHOTOS.length;
 
-  const go = useCallback((step: number) => setIndex((i) => (i + step + count) % count), [count]);
+  const goEvent = useCallback((step: number) => setEventIndex((i) => (i + step + eventCount) % eventCount), [eventCount]);
+  const goPhoto = useCallback((step: number) => setPhotoIndex((i) => (i + step + photoCount) % photoCount), [photoCount]);
 
-  // Restarts on every change of `index`, so a manual click also resets the 5s timer.
+  // Each change restarts the 5s timer, so a manual click also resets it.
   useEffect(() => {
-    if (reduce || count < 2) return;
-    const timer = setTimeout(() => go(1), AUTO_ADVANCE_MS);
+    if (reduce || eventCount < 2) return;
+    const timer = setTimeout(() => goEvent(1), AUTO_ADVANCE_MS);
     return () => clearTimeout(timer);
-  }, [index, reduce, count, go]);
+  }, [eventIndex, reduce, eventCount, goEvent]);
 
-  const mx = useMotionValue(0.5);
-  const my = useMotionValue(0.5);
-  const rotX = useSpring(useTransform(my, [0, 1], [7, -7]), { stiffness: 150, damping: 18 });
-  const rotY = useSpring(useTransform(mx, [0, 1], [-7, 7]), { stiffness: 150, damping: 18 });
-  const glowX = useTransform(mx, [0, 1], ["10%", "90%"]);
-  const glowY = useTransform(my, [0, 1], ["10%", "90%"]);
+  useEffect(() => {
+    if (reduce || photoCount < 2) return;
+    const timer = setTimeout(() => goPhoto(1), AUTO_ADVANCE_MS);
+    return () => clearTimeout(timer);
+  }, [photoIndex, reduce, photoCount, goPhoto]);
 
-  function onMove(e: React.PointerEvent) {
-    if (reduce || !ref.current) return;
-    const r = ref.current.getBoundingClientRect();
-    mx.set((e.clientX - r.left) / r.width);
-    my.set((e.clientY - r.top) / r.height);
-  }
-  function onLeave() {
-    mx.set(0.5);
-    my.set(0.5);
+  if (eventCount === 0) {
+    return (
+      <section id="event" className="section bg-mist">
+        <div className="container-x text-center">
+          <p className="kicker text-coral-deep">Events</p>
+          <h2 className="display-2 mt-4">No upcoming events right now.</h2>
+          <p className="mx-auto mt-5 max-w-lg text-muted">Check back soon, or follow us on Facebook and Instagram.</p>
+        </div>
+      </section>
+    );
   }
 
   return (
     <section id="event" className="section bg-mist">
-      <div className="container-x grid items-center gap-12 lg:grid-cols-2">
+      <div className="container-x grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        {/* Left: upcoming events. */}
         <Reveal>
-          {/* Every event sits in the same grid cell, so the section keeps the height of the longest one. */}
           <div className="grid">
-            {EVENTS.map((ev, i) => {
-              const active = i === index;
+            {events.map((ev, i) => {
+              const active = i === eventIndex;
               return (
                 <motion.div
                   key={ev.id}
@@ -83,76 +90,71 @@ export default function EventSpotlight() {
               );
             })}
           </div>
+
+          {eventCount > 1 && (
+            <div className="mt-10 flex items-center gap-4">
+              <button type="button" className="btn btn-ghost" onClick={() => goEvent(-1)} aria-label="Previous event">
+                <span aria-hidden>←</span> Previous
+              </button>
+              <span className="text-sm tabular-nums text-muted" aria-live="polite">
+                {eventIndex + 1} / {eventCount}
+              </span>
+              <button type="button" className="btn btn-ghost" onClick={() => goEvent(1)} aria-label="Next event">
+                Next <span aria-hidden>→</span>
+              </button>
+            </div>
+          )}
         </Reveal>
 
-        <div className="flex flex-col items-center gap-6">
-          <motion.div
-            ref={ref}
-            onPointerMove={onMove}
-            onPointerLeave={onLeave}
-            onClick={() => go(1)}
-            style={{ rotateX: reduce ? 0 : rotX, rotateY: reduce ? 0 : rotY, transformPerspective: 900 }}
-            initial={reduce ? { opacity: 1 } : { opacity: 0, scale: 0.92 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mx-auto aspect-[4/5] w-full max-w-sm cursor-pointer select-none overflow-hidden rounded-[2rem] border border-line bg-gradient-to-br from-brand via-green to-coral p-1 shadow-2xl shadow-brand/20"
+        {/* Right: photo card, 400px tall, same as the website's slideshow. */}
+        <Reveal>
+          <div
+            onClick={() => goPhoto(1)}
+            className="relative h-[400px] w-full cursor-pointer select-none overflow-hidden rounded-[2rem] border border-line bg-white shadow-xl shadow-brand/10"
           >
-            <div className="relative h-full w-full overflow-hidden rounded-[1.75rem] bg-white">
-              <motion.div
-                className="absolute inset-0 opacity-40"
-                style={{
-                  background: useTransform(
-                    [glowX, glowY],
-                    ([x, y]) => `radial-gradient(340px circle at ${x} ${y}, rgba(255,158,69,0.5), transparent 65%)`
-                  ),
-                }}
-              />
-              {EVENTS.map((ev, i) => {
-                const active = i === index;
-                return (
-                  <motion.div
-                    key={ev.id}
-                    className="absolute inset-0 flex flex-col items-center justify-center gap-5 p-8 text-center"
-                    aria-hidden={!active}
-                    initial={false}
-                    animate={{ opacity: active ? 1 : 0, scale: active || reduce ? 1 : 0.96 }}
-                    transition={FADE}
-                  >
-                    <span className="kicker rounded-full bg-brand-soft px-4 py-1.5 text-brand-deep">
-                      Save the date
-                    </span>
-                    <p className="display-2 font-black leading-none text-brand-deep">
-                      {ev.card.month}
-                      <span className="text-coral">.</span>
-                      {ev.card.day}
-                    </p>
-                    <p className="text-lg font-semibold text-ink/80">{ev.card.title}</p>
-                    <p className="max-w-[24ch] text-sm text-muted">{ev.card.location}</p>
-                    <div className="mt-2 flex gap-1.5" aria-hidden>
-                      <span className="h-2 w-2 rounded-full bg-brand" />
-                      <span className="h-2 w-2 rounded-full bg-green" />
-                      <span className="h-2 w-2 rounded-full bg-coral" />
-                      <span className="h-2 w-2 rounded-full bg-orange" />
-                    </div>
-                  </motion.div>
-                );
-              })}
+            {PHOTOS.map((photo, i) => {
+              const active = i === photoIndex;
+              return (
+                <motion.div
+                  key={photo.src}
+                  className="absolute inset-0"
+                  aria-hidden={!active}
+                  initial={false}
+                  animate={{ opacity: active ? 1 : 0, scale: active || reduce ? 1 : 1.04 }}
+                  transition={FADE}
+                >
+                  {/* Blurred copy fills the space around the photo, so the whole photo stays visible. */}
+                  <Image
+                    src={withBasePath(photo.src)}
+                    alt=""
+                    aria-hidden
+                    fill
+                    className="scale-110 object-cover blur-2xl"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                  />
+                  <Image
+                    src={withBasePath(photo.src)}
+                    alt={photo.alt}
+                    fill
+                    className="object-contain"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    priority={i === 0}
+                  />
+                </motion.div>
+              );
+            })}
+            <div className="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center" aria-hidden>
+              <div className="flex gap-2 rounded-full bg-white/80 px-3 py-2 shadow">
+                {PHOTOS.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`h-2 w-2 rounded-full transition-colors ${i === photoIndex ? "bg-brand-deep" : "bg-brand-deep/30"}`}
+                  />
+                ))}
+              </div>
             </div>
-          </motion.div>
-
-          <div className="flex items-center gap-4">
-            <button type="button" className="btn btn-ghost" onClick={() => go(-1)} aria-label="Previous event">
-              <span aria-hidden>←</span> Previous
-            </button>
-            <span className="text-sm tabular-nums text-muted" aria-live="polite">
-              {index + 1} / {count}
-            </span>
-            <button type="button" className="btn btn-ghost" onClick={() => go(1)} aria-label="Next event">
-              Next <span aria-hidden>→</span>
-            </button>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
