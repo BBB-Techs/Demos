@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Reveal, Stagger, StaggerItem } from "./motion";
 import { ADVOCACY } from "@/lib/content";
-import { withBasePath } from "@/lib/basePath";
+import { resolveHref, withBasePath } from "@/lib/basePath";
 
 export default function Advocacy() {
   return (
@@ -47,7 +47,7 @@ export default function Advocacy() {
           </Stagger>
 
           <Reveal delay={0.1}>
-            <a href={ADVOCACY.cta.href} className="btn btn-primary mt-8">
+            <a href={resolveHref(ADVOCACY.cta.href)} className="btn btn-primary mt-8">
               {ADVOCACY.cta.label}
             </a>
           </Reveal>

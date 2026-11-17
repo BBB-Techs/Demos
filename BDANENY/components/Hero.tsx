@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { HERO } from "@/lib/content";
-import { withBasePath } from "@/lib/basePath";
+import { resolveHref, withBasePath } from "@/lib/basePath";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -84,7 +84,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div variants={rise} className="mt-9 flex flex-wrap items-center gap-3">
-          <a href={HERO.primary.href} className="btn btn-primary">
+          <a href={resolveHref(HERO.primary.href)} className="btn btn-primary">
             {HERO.primary.label}
             <Arrow />
           </a>

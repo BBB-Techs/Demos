@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Reveal, Stagger, StaggerItem } from "./motion";
 import { INVOLVE } from "@/lib/content";
-import { withBasePath } from "@/lib/basePath";
+import { resolveHref, withBasePath } from "@/lib/basePath";
 
 export default function Involve() {
   return (
@@ -36,7 +36,7 @@ export default function Involve() {
                   <div className="card group flex h-full flex-col p-6">
                     <h3 className="font-extrabold text-ink">{c.title}</h3>
                     <p className="mt-2 flex-1 text-sm text-muted">{c.body}</p>
-                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-deep">
+                    <a href={resolveHref(c.href)} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-deep">
                       {c.cta}
                       <svg
                         width="14"
@@ -54,7 +54,7 @@ export default function Involve() {
                           strokeLinejoin="round"
                         />
                       </svg>
-                    </span>
+                    </a>
                   </div>
                 </StaggerItem>
               ))}

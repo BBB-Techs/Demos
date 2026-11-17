@@ -9,23 +9,26 @@ export const ORG = {
   phone: "(518) 729-3577",
   phoneHref: "tel:+15187293577",
   email: "info@bdaneny.org",
+  site: "https://bdaneny.org",
   facebook: "https://www.facebook.com/BDANENY",
   instagram: "https://www.instagram.com/bdaneny",
 };
 
 export const NAV = [
-  { label: "What We Do", href: "#pillars" },
-  { label: "Events", href: "#event" },
-  { label: "Advocacy", href: "#advocacy" },
-  { label: "Get Help", href: "#help" },
-  { label: "Get Involved", href: "#involve" },
+  { label: "Programs & Events", href: "/programs-events" },
+  { label: "About", href: "/about" },
+  { label: "Advocacy", href: "/advocacy" },
+  { label: "Get Help", href: "/get-help" },
+  { label: "Resources", href: "/resources" },
+  { label: "Support", href: "/support" },
+  { label: "Español", href: "/espanol" },
 ];
 
 export const HERO = {
   kicker: `Est. ${ORG.foundedYear} · Northeastern New York`,
   title: ["For every family,", "a lifeline."],
   lead: "We stand with the bleeding disorders community — turning education, advocacy, and direct support into a better quality of life for the people who count on us.",
-  primary: { label: "Get help now", href: "#help" },
+  primary: { label: "Get help now", href: "/get-help" },
   secondary: {
     label: "Donate",
     href: "https://crm.bloomerang.co/HostedDonation?ApiKey=pub_270bf66a-a934-11e7-afbe-024e165d44b3&WidgetId=1665024",
@@ -142,41 +145,41 @@ export function upcomingEvents(today: Date = new Date()): EventItem[] {
 
 export const ADVOCACY = {
   kicker: "Advocacy",
-  title: "Your story changes policy.",
-  body: "From coverage decisions in Albany to federal legislation in Washington, we make sure lawmakers hear directly from the people bleeding disorders affect.",
+  title: "Fighting for access to health care for the Bleeding Disorders Community",
+  body: "BDANENY and NYSBDC advocate for issues important to the bleeding disorder and chronic care communities.",
   items: [
     {
       title: "Local Issues",
-      body: "State-level coverage, Medicaid protections, and access to specialty care across New York.",
+      body: "Prior Authorization Reform and other state-level issues.",
     },
     {
       title: "Federal Issues",
-      body: "National legislation, research funding, and the policies that shape treatment nationwide.",
+      body: "Accumulator Adjuster Programs and other federal issues.",
     },
   ],
-  cta: { label: "Add your voice", href: "#involve" },
+  cta: { label: "Go to our Advocacy Page", href: "/advocacy" },
 };
 
 export const HELP = {
   kicker: "Get Help",
-  title: "Support, when you need it.",
-  body: "If your family is facing a bleeding disorder, you don't have to navigate it alone. These programs exist for you — reach out.",
+  title: "We can help!",
+  body: "Get help by recieving Scholarships, Emergency assistance and more.",
   programs: [
-    { title: "Scholarships", body: "Educational scholarships for members of our community pursuing their goals." },
-    { title: "Emergency Assistance", body: "Help covering urgent needs when a crisis hits unexpectedly." },
-    { title: "BDA Cares Grant", body: "Grants that ease the everyday financial weight of managing a bleeding disorder." },
-    { title: "Camperships", body: "Sending kids to camp — connection, confidence, and a summer to be a kid." },
+    { title: "Scholarships", body: "Educational scholarships for members of our community pursuing their goals.", href: "/get-help/scholarships" },
+    { title: "Emergency Assistance", body: "Help covering urgent needs when a crisis hits unexpectedly.", href: "/get-help/emergency-assistance-form" },
+    { title: "BDA Cares Grant", body: "Grants that ease the everyday financial weight of managing a bleeding disorder.", href: "/get-help/bda-cares-grant" },
+    { title: "Camperships", body: "Sending kids to camp — connection, confidence, and a summer to be a kid.", href: "/get-help/camperships" },
   ],
   cta: { label: "Talk to us", href: `tel:+15187293577` },
 };
 
 export const INVOLVE = {
   kicker: "Get Involved",
-  title: "It takes all of us.",
-  body: "Every donation, hour, and signature ripples out to a family who needs it. Here's where you come in.",
+  title: "Help us Help our Community - Volunteer!",
+  body: "Take a look at some of our upcoming events!",
   cards: [
-    { title: "Donate", body: "Fuel scholarships, emergency aid, and camp for families across the region.", cta: "Give today" },
-    { title: "Volunteer", body: "Lend your time and talent to events, advocacy, and community programs.", cta: "Sign up" },
-    { title: "Stay in touch", body: "Get our newsletter for events, research, and recall alerts that matter.", cta: "Subscribe" },
+    { title: "Donate", body: "You can help by making a donation, volunteering or even attending events with us!", cta: "Give today", href: "https://crm.bloomerang.co/HostedDonation?ApiKey=pub_270bf66a-a934-11e7-afbe-024e165d44b3&WidgetId=1665024" },
+    { title: "Volunteer", body: "We are currently not taking volunteers at this time.", cta: "Sign up", href: "/support/volunteer" },
+    { title: "Advertise", body: "BDANENY 2022 Newsletter Sponsorship Opportunities.", cta: "Learn more", href: "/support/advertise" },
   ],
 };

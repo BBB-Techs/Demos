@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { NAV, HERO } from "@/lib/content";
-import { withBasePath } from "@/lib/basePath";
+import { resolveHref, withBasePath } from "@/lib/basePath";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -50,8 +50,8 @@ export default function Nav() {
           {NAV.map((item) => (
             <li key={item.href}>
               <a
-                href={item.href}
-                className="rounded-full px-4 py-2 text-[0.95rem] text-ink/80 transition-colors hover:bg-brand-soft hover:text-brand-deep"
+                href={resolveHref(item.href)}
+                className="whitespace-nowrap rounded-full px-3 py-2 text-[0.9rem] text-ink/80 transition-colors hover:bg-brand-soft hover:text-brand-deep"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
               >
                 {item.label}
@@ -91,7 +91,7 @@ export default function Nav() {
               {NAV.map((item) => (
                 <li key={item.href}>
                   <a
-                    href={item.href}
+                    href={resolveHref(item.href)}
                     onClick={() => setOpen(false)}
                     className="block rounded-xl px-4 py-3 text-lg text-ink/85 transition-colors hover:bg-brand-soft"
                     style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}

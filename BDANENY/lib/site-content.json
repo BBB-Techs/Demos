@@ -1,0 +1,1594 @@
+{
+ "home": [
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Keep in Touch"
+  },
+  {
+   "t": "p",
+   "text": "We want to hear from you, please give us your feedback:"
+  },
+  {
+   "t": "p",
+   "text": "• WHAT EDUCATIONAL TOPICS DO YOU CARE ABOUT? Click here: TAKE OUR SURVEY!"
+  },
+  {
+   "t": "p",
+   "text": "• HOW INFORMATIVE IS OUR NEWSLETTER? Click here: TAKE OUR SURVEY!"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/ab/s0zQBzKhLl-ab21e21e.png",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Get Involved"
+  },
+  {
+   "t": "p",
+   "text": "Help us Help our Community - Volunteer!"
+  },
+  {
+   "t": "p",
+   "text": "Take a look at some of our upcoming events!"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/16/Washington%20Days2-16681cf6.png",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Advocacy"
+  },
+  {
+   "t": "p",
+   "text": "Fighting for access to health care for the Bleeding Disorders Community"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/36/photo-1511174511562-5f7f18b874f8-36863e94.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Research & Recall Info"
+  },
+  {
+   "t": "p",
+   "text": "Catch up on the latest news and research in the field of hemophilia."
+  },
+  {
+   "t": "p",
+   "text": "About BDANENY"
+  },
+  {
+   "t": "p",
+   "text": "Established in 1968 as the Upper Hudson Valley Chapter - National Hemophilia Foundation, Inc., the organization provides services and referrals to members of the community (and their families) and encourages them to advocate for their own health care."
+  },
+  {
+   "t": "a",
+   "text": "About Us",
+   "href": "/about"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/eb/photo-1582213782179-e0d53f98f2ca-eb714494.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "p",
+   "text": "Bleeding Disorders Association of Northeastern New York (BDANENY) is dedicated to assisting families with bleeding disorders through education and advocacy designed to enhance their quality of life. View our full mission statement →"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Support Us"
+  },
+  {
+   "t": "p",
+   "text": "You can help by making a donation, volunteering or even attending events with us! To donate, click the button below:"
+  },
+  {
+   "t": "a",
+   "text": "Donate Today",
+   "href": "https://crm.bloomerang.co/HostedDonation?ApiKey=pub_270bf66a-a934-11e7-afbe-024e165d44b3&WidgetId=1665024"
+  },
+  {
+   "t": "a",
+   "text": "Get informed. Read important information about bleeding disorders.",
+   "href": "/about/about-bleeding-disorders"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Get informed."
+  },
+  {
+   "t": "p",
+   "text": "Read important information about bleeding disorders."
+  },
+  {
+   "t": "a",
+   "text": "We can help! Get help by recieving Scholarships, Emergency assistance and more.",
+   "href": "/get-help"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "We can help!"
+  },
+  {
+   "t": "p",
+   "text": "Get help by recieving Scholarships, Emergency assistance and more."
+  },
+  {
+   "t": "a",
+   "text": "Advocacy Get involved and read about the latest bills affecting the hemophilia community.",
+   "href": "/advocacy"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Advocacy"
+  },
+  {
+   "t": "p",
+   "text": "Get involved and read about the latest bills affecting the hemophilia community."
+  }
+ ],
+ "about": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "About Us"
+  },
+  {
+   "t": "p",
+   "text": "Established in 1968 as the Upper Hudson Valley Chapter - National Hemophilia Foundation, Inc., the organization provides services and referrals to members of the community (and their families) and encourages them to advocate for their own health care. Furthermore, the organization provides programs that will improve the quality of life for persons afflicted with genetic bleeding disorders and their associated complications. BDANENY currently serves 22 counties of New York State. The territory extends from Ulster and Duchess counties east to the Green Mountains, west to Oneida County and north to the American/Canadian border. The Association is comprised of dedicated volunteers including patients, family members of patients, and health care professionals."
+  },
+  {
+   "t": "a",
+   "text": "Our Team Visit our Board and Staff page Meet our Team",
+   "href": "/about/staff"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/60/beth_picture-609b4e30.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Our Team"
+  },
+  {
+   "t": "a",
+   "text": "Our Community Bleeding Disorders Network Read more",
+   "href": "/about/our-community"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/ca/photo-1474649107449-ea4f014b7e9f-ca402ed3.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Our Community"
+  },
+  {
+   "t": "a",
+   "text": "Find out more Learn about bleeding disorders Read more",
+   "href": "/about/about-bleeding-disorders"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/13/coagulation%20disorders%20teaser%20image-138db54f.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Find out more"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/1d/community-1d04a388.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "p",
+   "text": "The Association endeavors to meet the diverse needs of a geographically dispersed community through a variety of programs, including:"
+  },
+  {
+   "t": "a",
+   "text": "Education, Outreach & Support",
+   "href": "/get-help"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Education, Outreach & Support"
+  },
+  {
+   "t": "a",
+   "text": "Legislative Advocacy",
+   "href": "/advocacy"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Legislative Advocacy"
+  },
+  {
+   "t": "a",
+   "text": "Scholarships",
+   "href": "/get-help/scholarships"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Scholarships"
+  },
+  {
+   "t": "a",
+   "text": "Camper-ships",
+   "href": "/get-help/camperships"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Camper-ships"
+  },
+  {
+   "t": "a",
+   "text": "Recreational Community Activities",
+   "href": "/programs-events"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Recreational Community Activities"
+  },
+  {
+   "t": "a",
+   "text": "Fundraising",
+   "href": "/support"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Fundraising"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "text": "Click the below to view our..."
+  },
+  {
+   "t": "a",
+   "text": "BDANENY Mission Statement",
+   "href": "/images/forms/BDANENY_mission_statement.pdf"
+  }
+ ],
+ "about/about-bleeding-disorders": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Bleeding Disorder Information"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "text": "About Bleeding Disorders"
+  },
+  {
+   "t": "p",
+   "text": "Bleeding disorders are a group of disorders that share the inability to form a proper blood clot. Symptoms include extended bleeding after injury, surgery, trauma, or menstruation. Sometimes the bleeding is spontaneous, without a known or identifiable cause. Improper clotting can be caused by defects in blood components such as platelets and/or clotting proteins, also called clotting factors. The body produces 13 clotting factors. If any of them are defective or deficient, blood clotting is affected; a mild, moderate or severe bleeding disorder can result.Some bleeding disorders, such as hemophilia, can be inherited or acquired."
+  },
+  {
+   "t": "p",
+   "text": "Bleeding disorders are complex, lifelong medical conditions which can have serious, sometimes life threatening impacts on those affected. While all bleeding disorders have a lot in common, such as some symptoms and the complications of bleeding, they are also all different."
+  },
+  {
+   "t": "p",
+   "text": "Hemophilia Treatment Centers (HTCs) are specialized health care centers that bring together a team of doctors, nurses and other health care professionals experienced in treating people with bleeding disorders."
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/6f/coagulation%20disorders%20teaser%20image-6fac5e5d.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "text": "Hemophilia"
+  },
+  {
+   "t": "p",
+   "text": "Bleeding disorders are treated differently depending on what protein is missing in the blood. Hemophilia is one of the most common bleeding disorders. A person with hemophilia can bleed inside or outside of the body. People with hemophilia do not bleed more than people without hemophilia, they just bleed longer. The most common types of bleeds are into the joints and muscles. Hemophilia affects 1 in 5,000 male births in the U.S. and approximately 400 babies are born with hemophilia each year. 400,000 people worldwide are living with hemophilia and about 30,000 – 33,000 are living with it in the United States alone. All races and economic groups are affected equally. People with hemophilia who have access to factor replacement therapy have a normal life expectancy.Hemophilia can be categorized as Type A (Factor VIII deficiency), Type B (Factor IX deficiency), Type C (Factor XI deficiency, or acquired hemophilia."
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/6f/photo-1631556096543-23fdcb5896da-6fa9c4c9.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "text": "Von Willebrand’s Disease"
+  },
+  {
+   "t": "p",
+   "text": "VWD is the most common type of bleeding disorder, affecting an estimated one percent of the world’s population. This means that 3.2 million (or about 1 in every 100) people in the United States have the disease. It affects females and males equally. However, because symptoms can be mild, many affected people have not been diagnosed or do not get diagnosed until later in life. If you have VWD, you might be missing or have a deficiency of VWD factor (VWF). You might also have plenty of VWD factor, but it doesn’t function properly. This means that your blood cannot successfully form a clot or a platelet plug or because the site of the bleed cannot receive enough FVIII because the VWF doesn’t transport it properly. VWD is usually hereditary, but it can also be acquired."
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/db/photo-1486825586573-7131f7991bdd-db82d17f.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "text": "Rare Factor Deficiencies"
+  },
+  {
+   "t": "p",
+   "text": "Less-common factor deficiencies such as I, II, V, VII, X, XI, XII and XIII were all discovered and identified in the 20th century. The majority of these conditions were only identified within the last 60-70 years."
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/4a/immune-thrombocytopenia-purpura-or-itp-4a98ef7b.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "text": "Platelet Disorders"
+  },
+  {
+   "t": "p",
+   "text": "Platelets play an important role in blood clotting, so when a person has a low number of platelets, too many platelets or their platelets don’t work the way they should, they have a platelet disorder. People with platelet disorders take longer to stop bleeding. Types of platelet disorders include: Bernard-Soulier Syndrome, Glanzmann’s Thrombasthenia, and Platelet Storage Pool Disease. Some platelet disorders are not fully understood and may result in a diagnosis of an \"unspecified platelet disorder.\""
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Hey! Check out our resources for more information"
+  },
+  {
+   "t": "a",
+   "text": "View our resources",
+   "href": "/resources"
+  }
+ ],
+ "about/our-community": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Bleeding Disorders Community"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Resources and Information About Our Community"
+  },
+  {
+   "t": "p",
+   "text": "There are many organizations which make managing yours or your family member's bleeding disorder a bit easier. We are here for you!"
+  },
+  {
+   "t": "img",
+   "src": "https://www.amc.edu/images/ALBANYMED_cmyk_2.png",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Albany Medical Hemophilia Treatment Center (HTC)"
+  },
+  {
+   "t": "p",
+   "text": "Albany Medical Center offers top treatment options and community resources for patients and families living with hemophilia, von Willebrand's disease, and other rare factor deficiencies."
+  },
+  {
+   "t": "a",
+   "text": "Visit",
+   "href": "https://www.amc.edu/Patient/services/hemophilia/"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Hemophilia Federation of America"
+  },
+  {
+   "t": "p",
+   "text": "The HFA serves as a consumer advocate for safe, affordable, and obtainable blood products and health coverage, as well as a better quality of life for all persons with bleeding disorders. HFA’s ongoing consumer advocacy agenda includes product safety, as well as accessibility, affordability, and availability of the products the individuals of this community require."
+  },
+  {
+   "t": "a",
+   "text": "Visit",
+   "href": "https://www.hemophiliafed.org/"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/18/national-hemophilia-foundation-180c099d.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "National Hemophilia Foundation, Inc."
+  },
+  {
+   "t": "p",
+   "text": "The NHF provides information pertaining to bleeding disorders (including hemophilia, von Willebrand Disease, Factor VII, and Factor XI deficiencies), legislative advocacy, research (gene therapy), conferences, etc. Including Steps for Living and Victory For Women."
+  },
+  {
+   "t": "a",
+   "text": "Visit",
+   "href": "https://www.hemophilia.org/"
+  },
+  {
+   "t": "img",
+   "src": "https://wfh.org/wp-content/uploads/2021/10/WFH-LOGO-ENGLISH.svg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "World Federation of Hemophilia"
+  },
+  {
+   "t": "p",
+   "text": "An international organization dedicated to individuals with hemophilia worldwide."
+  },
+  {
+   "t": "a",
+   "text": "Visit",
+   "href": "https://wfh.org/"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Canadian Hemophilia Society"
+  },
+  {
+   "t": "p",
+   "text": "The Canadian Hemophilia Society addresses the symptoms, diagnosis, and treatment of bleeding disorders including hemophilia, von Willebrand Disease, and other coagulation deficiencies including platelet function disorders. Excellent diagram depicting normal clot formation."
+  },
+  {
+   "t": "a",
+   "text": "Visit",
+   "href": "http://www.hemophilia.ca/"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "We also have a Newsletter!"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/9a/vessel-screenshot-9a260e48.png",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Be the first to know"
+  },
+  {
+   "t": "p",
+   "text": "The BDA News is a quarterly newsletter that is sent out via email to our community. Learn more about bleeding disorders and opportunities in our area. Sign up for our newsletter here:"
+  },
+  {
+   "t": "a",
+   "text": "Read Our Current Issue",
+   "href": "/about/our-community?view=article&id=9&catid=8"
+  }
+ ],
+ "about/staff": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Board & Staff"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "text": "Meet our Team!"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/a0/beth_picture-a02224a6.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Beth Mahar"
+  },
+  {
+   "t": "p",
+   "text": "Beth’s career has been based in non-profit organizations in the Capital District. She worked for over 13 years for the Hospice & Palliative Care Association of New York State, first as Director of Member Services and ultimately as Director of Operations. Her duties there included membership recruitment and retention, communications, public and professional education, fundraising, partnerships and collaborations. Prior to that, she was Director of Communications for the New York State Association of Area Agencies on Aging where, in addition to communications mainstays such as newsletters, web maintenance, member correspondence and legislative analyses, she oversaw caregiver-focused activities, including statewide trainings and administration of various Caregiver Support grants."
+  },
+  {
+   "t": "p",
+   "text": "Beth is also a past Board Member of the New York State Tribute Foundation, and past President and current Board Member of the Greater Loudonville Association."
+  },
+  {
+   "t": "p",
+   "text": "Please reach out to her at This email address is being protected from spambots. You need JavaScript enabled to view it. with any questions, concerns, or comments!"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Seeking a new Executive Director"
+  },
+  {
+   "t": "p",
+   "text": "BDANENY is seeking a versatile, strategic, and hands-on Executive Director (ED) to lead our chapter. As the chief executive officer, you will wear many hats—acting as both the strategic visionary and the operational anchor for the organization. You will oversee everything from high-level advocacy and coalition building to day-to-day office administration, financial oversight, fundraising, and member support."
+  },
+  {
+   "t": "p",
+   "text": "The ideal candidate is an empathetic leader with a sharp business mind, a passion for healthcare advocacy, and the ability to comfortably pivot between community engagement and rigorous non-profit compliance."
+  },
+  {
+   "t": "p",
+   "text": "Key Responsibilities"
+  },
+  {
+   "t": "li",
+   "text": "Office Administration & Financial Oversight"
+  },
+  {
+   "t": "li",
+   "text": "Daily Operations: Manage tech infrastructure, equipment, supplies, and database maintenance (Bloomerang). Oversee essential apps and programs (Zoom, Microsoft Office, MailChimp, Namecheap, etc.)."
+  },
+  {
+   "t": "li",
+   "text": "Financial Management: Handle payroll, bill paying, and meticulous budgeting."
+  },
+  {
+   "t": "li",
+   "text": "Compliance & Banking: Provide oversight for banking and financial services (Key Bank, credit card processing). Ensure full compliance with the IRS, NYS, and the NYS Charities Bureau."
+  },
+  {
+   "t": "li",
+   "text": "Insurance & HR Risk: Manage Workers' Compensation, disability, and Directors and Officers (D&O) insurance policies."
+  },
+  {
+   "t": "li",
+   "text": "Fundraising & Development"
+  },
+  {
+   "t": "li",
+   "text": "Event Planning: Direct major annual fundraising initiatives, most notably the signature BDANENY Walk."
+  },
+  {
+   "t": "li",
+   "text": "Grant Management: Write, submit, and report on organizational and program-specific grants."
+  },
+  {
+   "t": "li",
+   "text": "Vendor & Corporate Relations: Manage industry vendor relationships, including pharmaceutical and specialty pharmacy portals and formal letters of request."
+  },
+  {
+   "t": "li",
+   "text": "Advocacy & Policy Tracking"
+  },
+  {
+   "t": "li",
+   "text": "Coalition & Government Relations: Represent BDANENY in the NYS Bleeding Disorders Coalition; meet with government officials, write advocacy letters, and champion bills of interest."
+  },
+  {
+   "t": "li",
+   "text": "Policy Monitoring: Stay current on federal and state policies, programs, and pending legislation (including CDC, NIH, CMS, SSA, and Medicaid)."
+  },
+  {
+   "t": "li",
+   "text": "Care Barrier Identification: Actively identify and address impediments to patient care, including inpatient issues, Medicare/Medicaid hurdles, and commercial insurance barriers."
+  },
+  {
+   "t": "li",
+   "text": "Member Support & Community Education"
+  },
+  {
+   "t": "li",
+   "text": "Direct Aid Programs: Oversee the administration of member support initiatives, including BDA Grants, emergency funds, travel reimbursements, scholarships, and MedicAlert bracelets."
+  },
+  {
+   "t": "li",
+   "text": "Educational Programming: Plan and execute sponsored dinners, webinars, and the BDANENY Annual Meeting."
+  },
+  {
+   "t": "li",
+   "text": "Marketing, Communications & Design"
+  },
+  {
+   "t": "li",
+   "text": "Digital Presence: Maintain the organization's website, including technical backend tasks (domains, SSL certificates, and Cloudflare)."
+  },
+  {
+   "t": "li",
+   "text": "Public Relations: Drive community engagement via Facebook, MailChimp newsletters, and internal graphic design needs for promotional materials."
+  },
+  {
+   "t": "li",
+   "text": "Coalition Building & Meetings Management"
+  },
+  {
+   "t": "li",
+   "text": "Strategic Partnerships: Foster vital relationships with regional and national partners, including but not limited to Medicaid Matters, the Chapter & Staff Organization (CSO), HFA, NBDF, the Red Cross, Rensselaer County Chamber of Commerce, Troy BID, Stewart’s, Double H Ranch, and Sickle Cell/other disease state associations."
+  },
+  {
+   "t": "li",
+   "text": "Stakeholder Meetings: Manage communications and logistics for the Board of Directors, organizational committees, Hemophilia Treatment Centers (HTCs), and corporate vendors."
+  },
+  {
+   "t": "p",
+   "text": "Qualifications"
+  },
+  {
+   "t": "li",
+   "text": "Experience: 5+ years of progressive leadership experience in non-profit management, healthcare administration, or a relevant sector preferred."
+  },
+  {
+   "t": "li",
+   "text": "Technical & Financial Acumen: Proven experience managing payroll, budgets, NYS compliance (Charities Bureau), and fundamental IT/database systems (Bloomerang, MailChimp, Cloudflare/web domains)."
+  },
+  {
+   "t": "li",
+   "text": "Advocacy & Healthcare Knowledge: Strong understanding of New York State legislative processes, Medicaid, and the healthcare barriers facing rare disease communities."
+  },
+  {
+   "t": "li",
+   "text": "Fundraising Prowess: Demonstrated success in grant writing, event logistics (Walks), and corporate vendor relations."
+  },
+  {
+   "t": "li",
+   "text": "Design & Communication: Basic graphic design capability and excellent written communication skills for newsletters, letter-writing campaigns, and digital media."
+  },
+  {
+   "t": "li",
+   "text": "Education: Bachelor’s degree in a relevant field (Business, Public Administration, Public Health, Non-Profit Management) preferred."
+  },
+  {
+   "t": "p",
+   "text": "Compensation & Benefits"
+  },
+  {
+   "t": "li",
+   "text": "Salary: $60,000 - $70,000"
+  },
+  {
+   "t": "li",
+   "text": "Benefits: $2,500 per year towards an Individual Health Insurance plan"
+  },
+  {
+   "t": "li",
+   "text": "Work Environment: Hybrid remote/office schedule, includes attendance to events out of office hours based out of the Capital Region (Albany/Troy area)."
+  },
+  {
+   "t": "p",
+   "text": "To Apply"
+  },
+  {
+   "t": "p",
+   "text": "Interested candidates should submit a thoughtful cover letter detailing their alignment with our mission and operational needs, along with a current resume to This email address is being protected from spambots. You need JavaScript enabled to view it. with the subject line \"Executive Director Application – [Your Name]\"."
+  },
+  {
+   "t": "p",
+   "text": "BDANENY is an Equal Opportunity Employer. We celebrate diversity and are committed to creating an inclusive environment for all employees and community members."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Board of Directors"
+  },
+  {
+   "t": "p",
+   "text": "Bruce Weiner - President"
+  },
+  {
+   "t": "p",
+   "text": "Chris Huskie - Vice President"
+  },
+  {
+   "t": "p",
+   "text": "Cindi Keeler - Treasurer"
+  },
+  {
+   "t": "p",
+   "text": "Christina Mastrianni - Secretary Linda Peacock - Board Member"
+  },
+  {
+   "t": "p",
+   "text": "Jessica Smith - Board Member"
+  },
+  {
+   "t": "p",
+   "text": "Mary Anne Cecchetto - Board Member"
+  },
+  {
+   "t": "p",
+   "text": "Patricia Marck - Board Member"
+  }
+ ],
+ "advocacy": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Advocacy"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Your Voice Matters!"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/df/PhilSteck4-dfd2aad2.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Albany Days"
+  },
+  {
+   "t": "p",
+   "text": "BDANENY and NYSBDC advocate for issues important to the bleeding disorder and chronic care communities."
+  },
+  {
+   "t": "a",
+   "text": "NEW YORK STATE Read more",
+   "href": "/advocacy/ny"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/fe/capitol-building-fe234d34.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "NEW YORK STATE"
+  },
+  {
+   "t": "a",
+   "text": "FEDERAL ISSUES Read more",
+   "href": "/advocacy/federal"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/38/federal-building-38f88bee.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "FEDERAL ISSUES"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Find Your State Legislator"
+  },
+  {
+   "t": "p",
+   "text": "For information or to contact your state, senate or house representatives please visit the following websites:"
+  },
+  {
+   "t": "p",
+   "text": "US Senate"
+  },
+  {
+   "t": "p",
+   "text": "US House"
+  },
+  {
+   "t": "p",
+   "text": "New York State Senate"
+  },
+  {
+   "t": "p",
+   "text": "New York State Assembly"
+  }
+ ],
+ "advocacy/federal": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Advocacy"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Federal Issues"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Accumulator Adjuster Programs"
+  },
+  {
+   "t": "p",
+   "text": "THE ISSUEMany in the bleeding disorders community rely on patient copay assistance programs to help defray the out-of-pocket (OOP) cost of their prescription drugs. Unfortunately, health insurers increasingly are refusing to credit copay assistance toward patients’ deductibles and OOP maximums. Health plan policies called copay accumulator adjustments no longer count financial assistance toward the patient’s annual deductibles or their out-of-pocket maximum. In addition, a loophole in the Affordable Care Act allows many employer-sponsored health plans to deem certain critical and life-saving prescription drugs as “non-essential,” which significantly increases out-of-pocket costs for patients."
+  },
+  {
+   "t": "p",
+   "text": "WHAT IS BEING DONE"
+  },
+  {
+   "t": "p",
+   "text": "To date, twelve states and one territory (AZ, AR, CT, GA, IL, KY, LA, NC, OK, PR, TN, VA, WV) have passed laws prohibiting or limiting the use of accumulator adjusters for all individual and small group plans.On November 2, 2021 the Help Ensure Lower Patient Copays Act (HELP Copays Act), sponsored by Representatives Donald McEachin (D-VA), Rodney Davis (R-IL), Bonnie Watson Coleman (D-NJ), Bobby Rush (D-IL), Brian Fitzpatrick (R-PA), Yvette Clarke (D-NY), Marc Veasey (D-TX), Buddy Carter (R-GA), and Barbara Lee (D-CA) was introduced. The bipartisan HELP Copays Act (HR 5801) requires health plans to count the value of copay assistance toward patient cost-sharing requirements. This would bring much-needed relief to financially vulnerable patients by ensuring that all payments—whether they come directly out of a patient’s pocket or with the help of copay assistance—count towards their out-of-pocket costs."
+  }
+ ],
+ "advocacy/ny": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Advocacy"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "New York State"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Prior Authorization Reform"
+  },
+  {
+   "t": "p",
+   "text": "THE ISSUEPrior Authorization is a practice by payers (health insurance plans and Pharmacy Benefit Managers – PBMs) that requires a patient, doctor, or pharmacy to seek special permission from the payer to provide a patient with a treatment already covered by the patient’s health plan. Prior authorization rules are set by the payer and differ for each payer. The rules may require a patient, doctor, or pharmacy to submit additional information and receive approval before providing the medication or treatment. The original purpose of prior authorization was to limit unnecessary and potentially fraudulent insurance claims. Differing prior authorization rules, the extra information required, and the extra time needed to meet these requirements and receive authorization can cause several problems. Patients, doctors, and pharmacists may have trouble understanding the extra requirements. The extra work involved increases costs to payers, doctors, and pharmacists. It can also delay patients from receiving necessary care, which can harm the patient’s health and lead to complications (which require additional treatment).A growing problem for people with chronic medical conditions is the requirement to get prior authorization for every medication refill. Many people with bleeding disorders regularly use clotting medication to control bleeding and may need monthly refills. Because there is no cure for bleeding disorders they may need a prior authorization every month for medication the health plan already promised to cover. Delays and denials mean the patient can go without factor, risking serious bleeding and lasting complications."
+  },
+  {
+   "t": "p",
+   "text": "WHAT IS BEING DONE"
+  },
+  {
+   "t": "p",
+   "text": "Bill A.7129 (Gottfried) / S.6435a (Breslin) creates common sense guidelines for the use of prior authorization by health plans and PBM’s. The guidelines are designed to allow for prior authorization to be used in a way which doesn’t delay treatment for patients or add unnecessarily to the burden on medical staff. The guidelines:"
+  },
+  {
+   "t": "li",
+   "text": "Make a prior authorization approval good for the length of a prescription (1 year) rather than requiring approval for each refill"
+  },
+  {
+   "t": "li",
+   "text": "Limit the time needed for approvals; 72 hours for normal requests, 24 hours for urgent situations, and no wait for emergency situations"
+  },
+  {
+   "t": "li",
+   "text": "Make prior authorization based on medical science, not just cost"
+  },
+  {
+   "t": "li",
+   "text": "Create common, easy to understand electronic prior authorization processing"
+  }
+ ],
+ "espanol": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Tipos de trastornos hemorrágicos"
+  },
+  {
+   "t": "p",
+   "text": "Trastornos hemorrágicos es un término general para una amplia gama de problemas médicos que causan coagulación anormal y hemorragia continua. Los proveedores de atención médica llaman a estas afecciones de diferentes formas, incluyendo coagulopatía, hemorragia anormal, y trastornos de coagulación. Aunque la hemofilia es mejor conocida como trastorno hemorrágico, existen muchos tipos y la mayoría son hereditarios."
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/81/Screen%20Shot%202022-12-12%20at%206.06.47%20PM-8161dbea.png",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "View BDANENY's New publication section for Spanish speakers!"
+  },
+  {
+   "t": "a",
+   "text": "Vamos",
+   "href": "/espanol/boletines-en-espanol"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "En esta sección, encontrará más información sobre los tipos de trastornos hemorrágicos que se enumeran a continuación."
+  },
+  {
+   "t": "p",
+   "text": "Hemofilia: existen varios tipos de hemofilia. Los dos más comunes son:"
+  },
+  {
+   "t": "li",
+   "text": "Hemofilia A (conocida como hemofilia clásica)"
+  },
+  {
+   "t": "li",
+   "text": "Hemofilia B (conocida como enfermedad de Christmas)"
+  },
+  {
+   "t": "p",
+   "text": "Enfermedad de von Willebrand (VWD): los investigadores identificaron muchas variaciones de este trastorno hemorrágico."
+  },
+  {
+   "t": "p",
+   "text": "Trastornos plaquetarios poco comunes: hay varios trastornos hemorrágicos poco comunes en los que las plaquetas carecen de una proteína necesaria para la coagulación de la sangre. Estos trastornos son hereditarios en una forma autosómica recesiva."
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Los trastornos hemorrágicos varían mucho en cuanto a gravedad y frecuencia"
+  },
+  {
+   "t": "p",
+   "text": "Cada trastorno hemorrágico tiene su propio nivel de gravedad, el cual comúnmente se cataloga como leve, moderado o grave. En Estados Unidos hay aproximadamente 20,000 personas con hemofilia y hasta 1% a 2% de la población sufre la enfermedad de von Willebrand (VWD), el tipo más común de trastorno hemorrágico. Cada uno de estos trastornos ocasiona hemorragia y pueden ser tratados."
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "!NUEVO! Enfermedad de von Willebrand (EvW): Armando el rompecabezas de la EvW"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/37/enfermedad%20de%20von%20willebrand-37bff79f.png",
+   "alt": ""
+  }
+ ],
+ "espanol/boletines-en-espanol": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Boletines en Español"
+  },
+  {
+   "t": "a",
+   "text": "Obtener actualizaciones",
+   "href": "https://twitter.com/NHFespanol"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Boletines"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "¿Qué es la hemofilia?"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/34/Screen%20Shot%202022-12-12%20at%205.53.25%20PM-3479af5f.png",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Boletin informativo"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/37/enfermedad%20de%20von%20willebrand-37bff79f.png",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Más información por venir"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Nuestros recursos"
+  },
+  {
+   "t": "a",
+   "text": "Boletines en Español Boletines en Español Obtener actualizaciones Boletines ¿Qué es la hemofilia? Boletin informativo Más informac... Read more",
+   "href": "/espanol/boletines-en-espanol"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Boletines en Español"
+  },
+  {
+   "t": "a",
+   "text": "¿Hablas española? Tipos de trastornos hemorrágicos Trastornos hemorrágicos es un término general para una amplia gama de problemas médicos que causan coagulación anormal y hemorragia continua. Los proveedores de ate... Read more",
+   "href": "/espanol"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "¿Hablas española?"
+  }
+ ],
+ "get-help": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "We can help!"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/8a/chrome_eZOXb05B3S-8afeb84e.png",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Scholarship Information"
+  },
+  {
+   "t": "p",
+   "text": "The Association designates funds for the higher education of its members at accredited vocational schools and undergraduate programs. Applicants must be individuals with or immediate family members of individuals with a congenital bleeding disorder and be dues-paying members of the Association. One award will be granted per year for members living within the same immediate household."
+  },
+  {
+   "t": "a",
+   "text": "More about Scholarships",
+   "href": "/get-help/scholarships"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/b9/photo-1625980344922-a4df108b2bd0-b9b4e275.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "BDANENY Emergency Assistance"
+  },
+  {
+   "t": "p",
+   "text": "The BDANENY Emergency Assistance is designed to establish a rapid, non-invasive source of relief for emergency situations or urgent needs to persons who are affected by diagnosed bleeding disorders. Each year the BDANENY assists many families with emergency/urgent funding to assist in crisis situations."
+  },
+  {
+   "t": "a",
+   "text": "Get the Emergency Funds request form",
+   "href": "/images/forms/Emergency Funds request form.pdf"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/2e/photo-1603796846097-bee99e4a601f-2e32a06c.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "BDA Cares Grant"
+  },
+  {
+   "t": "p",
+   "text": "We have member support has been established to provide financial assistance to individuals who wish to pursue a non-academic opportunity for personal development."
+  },
+  {
+   "t": "a",
+   "text": "Read more",
+   "href": "/get-help/bda-cares-grant"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/2d/photo-1478131143081-80f7f84ca84d-2d02116e.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Camperships"
+  },
+  {
+   "t": "p",
+   "text": "Several camps in New York State offer activities tailored to kids with bleeding disorders and/or serious medical conditions. BDA may be able to help with camp fees. Please This email address is being protected from spambots. You need JavaScript enabled to view it. for more information on this program."
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/2c/photo-1593318560857-6cb2d0ed5c6e-2c6f08c1.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Clinical Travel Assistance Program (CTAP)"
+  },
+  {
+   "t": "p",
+   "text": "BDANENY will offer to pay the mileage cost of the family/patient attending a regularly scheduled Hemophilia Treatment Center (HTC) visit at Albany Medical Center."
+  },
+  {
+   "t": "p",
+   "text": "Reimbursement is made for round-trip mileage based on the vehicle reimbursement rate for the year incurred. Confirmation of the attendance and completion of the regularly scheduled HTC visit will be sent in writing to the BDANENY by a member of the HTC staff."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "text": "Help from our national partners"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/a7/HFAHelpingHands-a7ab5089.png",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "HFA Helping Hands"
+  },
+  {
+   "t": "p",
+   "text": "Hemophilia Federation of America provides assistance with urgent basic living expenses, medically necessary items, plus medical travel and educational support for people with bleeding disorders."
+  },
+  {
+   "t": "a",
+   "text": "check it out",
+   "href": "https://www.hemophiliafed.org/home/our-role-and-programs/assisting-and-advocating/financial-assistance/"
+  },
+  {
+   "t": "p",
+   "text": "There are many organizations which make managing yours or your family member's bleeding disorder a bit easier. We are here for you!"
+  },
+  {
+   "t": "a",
+   "text": "Other Organizations",
+   "href": "/about/our-community"
+  },
+  {
+   "t": "a",
+   "text": "NY State of Health",
+   "href": "https://nystateofhealth.ny.gov/"
+  }
+ ],
+ "get-help/bda-cares-grant": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "BDA Cares Grant"
+  },
+  {
+   "t": "li",
+   "text": "The Bleeding Disorders Association of Northeastern New York, Inc. (BDANENY) Member support has been established to provide financial assistance to individuals who wish to pursue a non-academic opportunity for personal development."
+  },
+  {
+   "t": "li",
+   "text": "Member support shall be available to members of the BDANENY who meet the criteria as established by the Board of Directors."
+  },
+  {
+   "t": "li",
+   "text": "Individuals requesting a personal development grant shall complete the Grant Application and submit to the organization."
+  },
+  {
+   "t": "li",
+   "text": "The treasurer shall review the application and the organization’s financial resources to determine if financial support is available."
+  },
+  {
+   "t": "li",
+   "text": "Grants are intended for, but not limited to:"
+  },
+  {
+   "t": "li",
+   "text": "Tuition for extracurricular programs;"
+  },
+  {
+   "t": "li",
+   "text": "Specialized equipment for participation in athletic programs;"
+  },
+  {
+   "t": "li",
+   "text": "Travel expenses related to participation in cultural development activities."
+  },
+  {
+   "t": "li",
+   "text": "The organization shall award grants in an amount not to exceed $500.00. Outside funding and other support should be encouraged."
+  },
+  {
+   "t": "li",
+   "text": "The Board of Directors reserves the right to request additional pertinent information before making a decision on a submitted Grant Application."
+  },
+  {
+   "t": "li",
+   "text": "Applicants should submit materials related to the activity (brochures, registration documents, invoices, etc.) and the amount they are requesting."
+  },
+  {
+   "t": "li",
+   "text": "Applicant should submit a 250-300 word essay on how the participation in the activity for which support is requested would enhance their life."
+  },
+  {
+   "t": "li",
+   "text": "The organization reserves the right to deny requests or to provide assistance less than the amount requested at the discretion of the board."
+  }
+ ],
+ "get-help/camperships": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Camperships"
+  },
+  {
+   "t": "p",
+   "text": "Several camps in New York State offer activities tailored to kids with bleeding disorders and/or serious medical conditions. BDA may be able to help with camp fees. Please This email address is being protected from spambots. You need JavaScript enabled to view it. for more information on this program."
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Camps we support"
+  },
+  {
+   "t": "p",
+   "text": "Camp High HopesOccurring during the month of August and lasting one week (Sunday to Saturday for the campers and Saturday to Saturday for the counselors) the Camp High Hopes has provided a summer camp for boys (ages 7-17) with bleeding disorders every year since the late 1980s. Bleeding disorders such as hemophilia and VonWillebrand’s Disease require specialized knowledge and care. Most other summer camps in existence either cannot or will not accept children with such disorders into their program. For this reason, Camp High Hopes Inc. offers these children a camp of their own where they can have the summer camp experience safely, while at the same time learning independence & self-reliance coupled with the skills needed to get there."
+  },
+  {
+   "t": "p",
+   "text": "Camp Little OakCamp Little Oak is a non-profit, week-long summer camp for girls with bleeding disorders. As space permits, we also have campers who carry bleeding disorders, or are a sibling to someone with a bleeding disorder. Girls bleed too! So, why don’t they have their own camp? At Camp Little Oak, we make a special place for girls with bleeding disorders, letting girls confront their bleeding disorders (just like boys), but also the unique parts of being a girl with a bleeding disorder. We want all girls with bleeding disorders to know that they are not alone, there are others just like them."
+  },
+  {
+   "t": "p",
+   "text": "Double H RanchThe Double H Ranch, located in New York’s Adirondack Park, is a demonstration of the commitment and generosity of philanthropist Charles R. Wood and actor Paul Newman. Since the Double H officially opened its doors on July 4, 1993, it has served over 60,000 children dealing with life-threatening illnesses from around the world. It was the second “Hole in the Wall Camp” in what has become a worldwide network of not-for-profit recreational and therapeutic experiences for children with serious illness."
+  }
+ ],
+ "get-help/emergency-assistance-form": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Emergency Assistance Form"
+  },
+  {
+   "t": "a",
+   "text": "Get Emergency Assistance PDF",
+   "href": "/images/forms/Emergency Funds request form.pdf"
+  }
+ ],
+ "get-help/scholarships": [
+  {
+   "t": "h",
+   "level": 4,
+   "text": "We can Help!"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Scholarships"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/8a/chrome_eZOXb05B3S-8afeb84e.png",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "The BDANENY Scholarship..."
+  },
+  {
+   "t": "p",
+   "text": "The Association designates funds for the higher education of its members at accredited vocational schools and undergraduate programs. Applicants must be individuals with or immediate family members of individuals with a congenital bleeding disorder and be dues-paying members of the Association. One award will be granted per year for members living within the same immediate household. Depending upon available funds and the degree program in which enrolled, the BDANENY will award up to two $1000 scholarships per academic year."
+  },
+  {
+   "t": "p",
+   "text": "Applications must be submitted by May 1, 2023.Click here to download an application, and click here to download the rubrics used for evaluating each scholarship."
+  },
+  {
+   "t": "a",
+   "text": "BDANENY Scholarship Application",
+   "href": "/images/forms/Scholarship_application.pdf"
+  },
+  {
+   "t": "a",
+   "text": "BDANENY Scholarship Rubrics",
+   "href": "/images/forms/Scholarship_rubric-2016.pdf"
+  },
+  {
+   "t": "p",
+   "text": "For further information, contact This email address is being protected from spambots. You need JavaScript enabled to view it..orBleeding Disorders Association of NENY, Inc.333 BroadwaySuite 320​Troy, NY 12180"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/17/alexis-brown-omeaHbEFlN4-unsplash-178bf52e.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "View all other Bleeding Disorder Scholarship Opportunities..."
+  },
+  {
+   "t": "p",
+   "text": "National Hemophilia Foundation updates their website with scholarship opportunities for individuals in the bleeding disorders community."
+  },
+  {
+   "t": "a",
+   "text": "See All Opportunities Here",
+   "href": "https://www.hemophilia.org/community-resources/financial-assistance/scholarships"
+  }
+ ],
+ "programs-events": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Programs & Events"
+  },
+  {
+   "t": "p",
+   "text": "ANNUAL MEETING"
+  },
+  {
+   "t": "p",
+   "text": "Join us on Sunday, November 15 at Apex Entertainment (Crossgates Mall, Albany) for a day of education and fun!"
+  },
+  {
+   "t": "p",
+   "text": "Check in with our vendors and be in a drawing to win a prize."
+  },
+  {
+   "t": "p",
+   "text": "Enjoy a delicious lunch and meet the new ED"
+  },
+  {
+   "t": "p",
+   "text": "Then its off to bumper cars, bowling or the arcade."
+  },
+  {
+   "t": "p",
+   "text": "The fun starts at 11:00 am"
+  },
+  {
+   "t": "p",
+   "text": "Register here"
+  },
+  {
+   "t": "p",
+   "text": "VIRTUAL EDUCATION EVENT"
+  },
+  {
+   "t": "p",
+   "text": "Join us on December 3 at 6:30 pm to learn about rebalancing agents, the latest breakthrouh in hemophilia treatment. Sponsored by Pfizer."
+  },
+  {
+   "t": "p",
+   "text": "Register here"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/2e/Annual%20Meeting2-2e65bfa0.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/0a/Beth%20Jess%20Melissa-0a4ccde6.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/17/IMG_2590-1713c048.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/ea/Kids%20Swing-ea55c168.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/5e/community-is-strength-5e8e95f0.png",
+   "alt": ""
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/4e/23%201129%20677Prime-4e67d561.jpeg",
+   "alt": ""
+  }
+ ],
+ "resources": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Resources"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/9a/vessel-screenshot-9a260e48.png",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "The Official Newsletter for the Bleeding Disorders Association of Northeastern New York"
+  },
+  {
+   "t": "p",
+   "text": "The BDA News is a quarterly newsletter that is sent out via email to our community. Learn more about bleeding disorders and opportunities in our area."
+  },
+  {
+   "t": "a",
+   "text": "View all our newsletters",
+   "href": "https://issuu.com/bdaneny2"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Looking for a provider who understands the needs of a bleeding disorders patient? Click here to access our vetted provider lists"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/34/photo-1486825586573-7131f7991bdd-34d0679e.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "text": "Research & Recall Info"
+  },
+  {
+   "t": "p",
+   "text": "See some important findings in the world of hemophilia."
+  },
+  {
+   "t": "a",
+   "text": "Learn more",
+   "href": "/resources/forms"
+  }
+ ],
+ "resources/forms": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Research"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/9f/photo-1578496480240-32d3e0c04525-9fde324a.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Gene Therapy"
+  },
+  {
+   "t": "p",
+   "text": "BioMarin has published results of its Phase III clinical trials of its investigational gene therapy, intended for the treatment of adults with severe hemophilia A. The trial results of valoctocogene roxaparvovec was published in the New England Journal of Medicine on March 17, 2022. In the published results, BioMarin shared that after a single infusion of valoctocogene roxaparvovec, patients experienced substantially reduced annualized bleeding rates, reduced Factor VIII utilization, and increased Factor VIII activity. Valoctocogene roxaparvovec has been studied longer than any other gene therapy for hemophilia A."
+  },
+  {
+   "t": "a",
+   "text": "Read the Study",
+   "href": "https://www.nejm.org/doi/full/10.1056/NEJMoa2113708?af=R&rss=currentIssue"
+  },
+  {
+   "t": "img",
+   "src": "/templates/yootheme/cache/8a/photo-1631556096543-23fdcb5896da-8a1949f6.jpeg",
+   "alt": ""
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Von Willebrand’s Disease"
+  },
+  {
+   "t": "p",
+   "text": "The American Society of Hematology and the International Society on Thrombosis and Haemostasis, the National Hemophilia Foundation (NHF), and the World Federation of Hemophilia (WFH) are endorsing new guidelines regarding the diagnosis of von Willebrand’s disease. Key recommendations of these guidelines include the role of bleeding-assessment tools in the assessment of patients suspected of VWD, diagnostic assays and laboratory cutoffs for type 1 and type 2 VWD, how to approach a type 1 VWD patient with normalized levels over time, and the role of genetic testing vs phenotypic assays."
+  },
+  {
+   "t": "a",
+   "text": "Read the recommendations",
+   "href": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7805340/"
+  }
+ ],
+ "support": [
+  {
+   "t": "h",
+   "level": 4,
+   "text": "Support"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Donate"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Impact the community by Donating today!"
+  },
+  {
+   "t": "a",
+   "text": "Donate",
+   "href": "https://crm.bloomerang.co/HostedDonation?ApiKey=pub_270bf66a-a934-11e7-afbe-024e165d44b3&WidgetId=1665024"
+  },
+  {
+   "t": "p",
+   "text": "HOW DONATION DOLLARS WERE SPENT FOR 2021:"
+  },
+  {
+   "t": "li",
+   "text": "$500 Grocery Gift Card"
+  },
+  {
+   "t": "li",
+   "text": "$500 Payment for Living Expenses not covered by Insurance as a result of a house fire."
+  },
+  {
+   "t": "li",
+   "text": "$1000 Scholarship"
+  },
+  {
+   "t": "li",
+   "text": "$500 BDA Cares Grant"
+  },
+  {
+   "t": "li",
+   "text": "HTC Mileage Reimbursement"
+  },
+  {
+   "t": "li",
+   "text": "Community Outreach Events"
+  },
+  {
+   "t": "li",
+   "text": "BDA Chapter Coalition Advocacy"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Other ways to Support BDA"
+  },
+  {
+   "t": "a",
+   "text": "Advertise",
+   "href": "/support/advertise"
+  },
+  {
+   "t": "a",
+   "text": "Volunteer",
+   "href": "/support/volunteer"
+  }
+ ],
+ "support/advertise": [
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Advertise with BDANENY!"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "text": "BDANENY 2022 Newsletter Sponsorship Opportunities"
+  },
+  {
+   "t": "a",
+   "text": "View all Sponsorship opportunities (PDF)",
+   "href": "/images/forms/2022 Newsletter Sponsor Rates.pdf"
+  }
+ ],
+ "support/volunteer": [
+  {
+   "t": "h",
+   "level": 4,
+   "text": "Support"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Volunteer!"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "text": "Volunteer"
+  },
+  {
+   "t": "p",
+   "text": "Thank you for your interest in helping BDANENY! We are currently not taking and volunteers at this time."
+  },
+  {
+   "t": "p",
+   "text": "Feel free to contact us."
+  }
+ ]
+}

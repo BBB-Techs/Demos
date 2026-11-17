@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ORG, NAV } from "@/lib/content";
-import { withBasePath } from "@/lib/basePath";
+import { resolveHref, withBasePath } from "@/lib/basePath";
 
 export default function Footer() {
   return (
@@ -23,7 +23,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-2.5">
             {NAV.map((n) => (
               <li key={n.href}>
-                <a href={n.href} className="text-sm text-ink/75 hover:text-brand-deep">
+                <a href={resolveHref(n.href)} className="text-sm text-ink/75 hover:text-brand-deep">
                   {n.label}
                 </a>
               </li>
@@ -50,6 +50,14 @@ export default function Footer() {
               </a>
               <a href={ORG.instagram} className="text-ink/75 hover:text-brand-deep" aria-label="BDANENY on Instagram">
                 Instagram
+              </a>
+            </li>
+            <li className="flex gap-4 pt-1">
+              <a href={`${ORG.site}/board-portal`} className="text-ink/75 hover:text-brand-deep" target="_blank" rel="noopener noreferrer">
+                Board Portal
+              </a>
+              <a href={`${ORG.site}/login`} className="text-ink/75 hover:text-brand-deep" target="_blank" rel="noopener noreferrer">
+                Sign In
               </a>
             </li>
           </ul>

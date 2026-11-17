@@ -8,6 +8,7 @@ import Advocacy from "@/components/Advocacy";
 import Help from "@/components/Help";
 import Involve from "@/components/Involve";
 import Footer from "@/components/Footer";
+import { AboutSection, ResearchSection, InformedCards, SupportAndTouch } from "@/components/HomeExtras";
 
 export default function Home() {
   return (
@@ -18,10 +19,14 @@ export default function Home() {
         <Hero />
         <Stats />
         <Pillars />
+        <AboutSection />
         <EventSpotlight />
         <Advocacy />
+        <ResearchSection />
         <Help />
+        <InformedCards />
         <Involve />
+        <SupportAndTouch />
       </main>
       <Footer />
     </>

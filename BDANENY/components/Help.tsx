@@ -2,6 +2,7 @@
 
 import { Reveal, Stagger, StaggerItem } from "./motion";
 import { HELP } from "@/lib/content";
+import { resolveHref } from "@/lib/basePath";
 
 const ICONS: Record<string, React.ReactNode> = {
   Scholarships: (
@@ -31,7 +32,7 @@ export default function Help() {
         <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {HELP.programs.map((p) => (
             <StaggerItem key={p.title}>
-              <div className="group h-full rounded-2xl border border-white/15 bg-white/5 p-6 transition-colors duration-300 hover:border-orange/50 hover:bg-white/10">
+              <a href={resolveHref(p.href)} className="group block h-full rounded-2xl border border-white/15 bg-white/5 p-6 transition-colors duration-300 hover:border-orange/50 hover:bg-white/10">
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-orange/15 text-orange transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
                   <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden>
                     {ICONS[p.title]}
@@ -39,13 +40,13 @@ export default function Help() {
                 </span>
                 <h3 className="mt-4 text-lg font-extrabold">{p.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/65">{p.body}</p>
-              </div>
+              </a>
             </StaggerItem>
           ))}
         </Stagger>
 
         <Reveal delay={0.1} className="mt-10">
-          <a href={HELP.cta.href} className="btn btn-coral">
+          <a href={resolveHref(HELP.cta.href)} className="btn btn-coral">
             {HELP.cta.label}
           </a>
         </Reveal>
