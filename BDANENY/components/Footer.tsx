@@ -56,9 +56,6 @@ export default function Footer() {
               <a href={`${ORG.site}/board-portal`} className="text-ink/75 hover:text-brand-deep" target="_blank" rel="noopener noreferrer">
                 Board Portal
               </a>
-              <a href={`${ORG.site}/login`} className="text-ink/75 hover:text-brand-deep" target="_blank" rel="noopener noreferrer">
-                Sign In
-              </a>
             </li>
           </ul>
         </div>

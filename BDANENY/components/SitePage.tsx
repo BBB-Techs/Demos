@@ -27,8 +27,13 @@ function groupBlocks(blocks: Block[]): Group[] {
       continue;
     }
     if (b.t === "img") {
-      groups.push({ items: [b] });
-      current = null;
+      // A photo that follows text belongs to that text; otherwise it stands alone.
+      if (current && (current.items.length > 0 || current.heading) && !current.items.some((i) => i.t === "img")) {
+        current.items.push(b);
+      } else {
+        groups.push({ items: [b] });
+        current = null;
+      }
       continue;
     }
     if (!current) {
@@ -151,6 +156,32 @@ function Section({ g }: { g: Group }) {
   );
 }
 
+// Text and its photo side by side; the photo alternates left and right.
+function SplitRow({ g, flip }: { g: Group; flip: boolean }) {
+  const text = g.items.filter((i) => i.t !== "img");
+  const photo = g.items.find((i): i is Extract<Block, { t: "img" }> => i.t === "img");
+  if (!photo) return null;
+  return (
+    <div className="mt-10 grid items-center gap-8 rounded-[1.75rem] border border-line bg-white p-6 shadow-sm md:grid-cols-2 md:p-10">
+      <div className={flip ? "md:order-2" : ""}>
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-line bg-brand-soft">
+          <Photo src={photo.src} alt={photo.alt} className="h-full w-full object-cover" />
+        </div>
+      </div>
+      <div className={flip ? "md:order-1" : ""}>
+        {g.heading && (
+          <h2 className={g.heading.level <= 2 ? "text-2xl font-extrabold text-ink md:text-3xl" : "text-xl font-bold text-brand-deep"}>
+            {g.heading.text}
+          </h2>
+        )}
+        <div className="text-sm md:text-base">
+          <Body items={text} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function SitePage({ pageKey }: { pageKey: string }) {
   const groups = groupBlocks(getBlocks(pageKey));
   // Consecutive photo-based sections share a responsive grid.
@@ -167,8 +198,14 @@ export default function SitePage({ pageKey }: { pageKey: string }) {
     );
     grid = [];
   };
+  let split = 0;
   groups.forEach((g, gi) => {
-    if (hasImage(g)) {
+    const text = g.items.filter((i) => i.t !== "img");
+    const hasPhoto = hasImage(g);
+    if (hasPhoto && text.length > 0) {
+      flush(gi);
+      rows.push(<SplitRow key={`r-${gi}`} g={g} flip={split++ % 2 === 1} />);
+    } else if (hasPhoto) {
       grid.push(g);
     } else {
       flush(gi);

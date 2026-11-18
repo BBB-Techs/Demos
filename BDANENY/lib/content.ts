@@ -15,6 +15,7 @@ export const ORG = {
 };
 
 export const NAV = [
+  { label: "Home", href: "/" },
   { label: "Programs & Events", href: "/programs-events" },
   { label: "About", href: "/about" },
   { label: "Advocacy", href: "/advocacy" },

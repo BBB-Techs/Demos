@@ -35,7 +35,7 @@ export default function Nav() {
       }`}
     >
       <nav className="container-x flex h-[72px] items-center justify-between gap-4">
-        <a href="#top" className="flex items-center" aria-label="BDANENY home">
+        <a href={resolveHref("/")} className="flex items-center" aria-label="BDANENY home">
           <Image
             src={withBasePath("/brand/logo-tight.png")}
             alt="BDANENY — Bleeding Disorders Association of Northeastern New York"
